@@ -89,8 +89,8 @@ export default function ComingSoon() {
             Go to homepage
           </a>
           <a
-            href="mailto:fadelanumah@gmail.com"
-            className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-black text-white text-sm font-semibold hover:bg-violet-600 transition-colors duration-200"
+            href="/contact"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-lg border border-black/10 text-black text-sm font-semibold hover:border-violet-400 hover:text-violet-600 transition-colors duration-200"
           >
             Get in touch
             <ArrowRight size={15} />
