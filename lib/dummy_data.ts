@@ -70,7 +70,7 @@ export const experiences = [
     period: "Feb 2023 — Jun 2023",
     description:
       `
-      As a software engineer intern, I involved in several projects as an individual contributor, working with a team in agile methodology, participate in daily and weekly stand up as routine, Using Laravel, jquery, 
+      As a software engineer intern, I was involved in several projects as an individual contributor, working with a team in agile methodology, participate in daily and weekly stand up as routine, Using Laravel, jquery, 
       and bootstrap as main stack, Using git and gitlab as version control system, Learning implementation of repository pattern in Laravel, Learning unit and feature testing with PHPUnit, Learning create open api with Laravel framework, 
       and Implement technical SEO for the website.
       `,
