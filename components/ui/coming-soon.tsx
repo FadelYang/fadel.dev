@@ -44,7 +44,7 @@ export default function ComingSoon() {
           className={`text-black font-bold text-xl tracking-tight mb-16 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
           style={{ fontFamily: "'Syne', sans-serif" }}
         >
-          fadel.dev<span className="text-violet-500">.</span>
+          Fadela Numah Kadenza<span className="text-violet-500">.</span>
         </a>
 
         {/* Badge */}
