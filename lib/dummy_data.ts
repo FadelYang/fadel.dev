@@ -1,0 +1,1 @@
+export const stacks = ["React", "Next.js", "Laravel", "Node.js", "Python", "Go", "REST", "AI & ML Model Integration", "PostgreSQL", "Redis"]

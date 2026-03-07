@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { ArrowRight, Github, Linkedin } from "lucide-react";
+import MainTag from "@/components/ui/main_tag";
+import { stacks } from "@/lib/dummy_data";
 
 const roles = ["Frontend.", "Backend.", "AI Engineer."];
 
@@ -92,13 +94,8 @@ export default function Hero() {
           <div
             className={`flex flex-wrap gap-2 mb-10 transition-all duration-700 delay-[250ms] ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
           >
-            {["React", "Next.js", "Laravel", "Node.js", "Python", "Go", "REST", "AI & ML Model Integration", "PostgreSQL", "Redis"].map((tag) => (
-              <span
-                key={tag}
-                className="px-3 py-1 rounded-full text-xs font-semibold border border-black/10 text-black/60 hover:border-violet-400 hover:text-violet-600 transition-colors duration-200 cursor-default"
-              >
-                {tag}
-              </span>
+            {stacks.map((tag) => (
+             <MainTag tag={tag} key={tag}/>
             ))}
           </div>
 

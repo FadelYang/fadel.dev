@@ -3,6 +3,7 @@
 import { useState } from "react";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import { Menu, X } from "lucide-react";
+import ProgressBar from "@/components/ui/progress_bar";
 
 const links = [
   { label: "Home", href: "/" },
@@ -57,6 +58,8 @@ export default function Header() {
           </button>
         </div>
       </div>
+
+      <ProgressBar />
 
       {/* Mobile Menu */}
       {menuOpen && (
