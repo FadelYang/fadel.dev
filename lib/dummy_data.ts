@@ -52,4 +52,28 @@ export const experiences = [
       `,
     tags: ["Laravel", "MySQL", "Node.JS", "React", "Tailwind", "Bootstrap"],
   },
+  {
+    role: "Web Developer",
+    company: "Self Employee",
+    type: "Freelance",
+    period: "Jul 2023 — Present",
+    description:
+      `
+      Open web development services from scratch that meet customer needs, from simple company profiles to complex business management systems.
+      `,
+    tags: ["Laravel", "MySQL", "Node.JS", "React", "Tailwind", "Bootstrap", "Express.JS", "PHP"],
+  },
+  {
+    role: "Web Software Engineer",
+    company: "Nusantara Beta Studio",
+    type: "Internship",
+    period: "Feb 2023 — Jun 2023",
+    description:
+      `
+      As a software engineer intern, I involved in several projects as an individual contributor, working with a team in agile methodology, participate in daily and weekly stand up as routine, Using Laravel, jquery, 
+      and bootstrap as main stack, Using git and gitlab as version control system, Learning implementation of repository pattern in Laravel, Learning unit and feature testing with PHPUnit, Learning create open api with Laravel framework, 
+      and Implement technical SEO for the website.
+      `,
+    tags: ["Laravel", "MySQL", "Bootstrap", "PHP", "PostgreSQL"],
+  },
 ];

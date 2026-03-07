@@ -9,7 +9,7 @@ const typeColor: Record<string, string> = {
   Contract: "text-blue-600 bg-blue-50 border-blue-200",
   "Part-time": "text-emerald-600 bg-emerald-50 border-emerald-200",
   Freelance: "text-orange-600 bg-orange-50 border-orange-200",
-  Internship: "text-red-600 bg-red-50 border-red-200",
+  Internship: "text-blue-600 bg-blue-50 border-blue-200",
 };
 
 function TimelineItem({ exp, index }: { exp: typeof experiences[0]; index: number }) {
