@@ -4,6 +4,7 @@ import { useState } from "react";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import { Menu, X } from "lucide-react";
 import ProgressBar from "@/components/ui/progress_bar";
+import { usePathname } from "next/navigation";
 
 const links = [
   { label: "Home", href: "/" },
@@ -14,6 +15,10 @@ const links = [
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
     <header className="sticky top-0 z-50 backdrop-blur-md border-b border-black/10">
@@ -31,7 +36,11 @@ export default function Header() {
               <NavigationMenu.Item key={link.href}>
                 <NavigationMenu.Link
                   href={link.href}
-                  className="block px-4 py-2 rounded-lg text-sm font-medium text-black/60 hover:text-black hover:bg-black/5 transition-colors duration-200"
+                  className={`block px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200
+                    ${isActive(link.href)
+                      ? "text-violet-600 bg-violet-50"
+                      : "text-black/60 hover:text-black hover:bg-black/5"
+                    }`}
                 >
                   {link.label}
                 </NavigationMenu.Link>
@@ -69,7 +78,11 @@ export default function Header() {
               key={link.href}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className="px-4 py-3 rounded-lg text-black/70 hover:text-black hover:bg-black/5 text-sm font-medium transition-colors duration-200"
+              className={`px-4 py-3 rounded-lg text-sm font-medium transition-colors duration-200
+                ${isActive(link.href)
+                  ? "text-violet-600 bg-violet-50"
+                  : "text-black/70 hover:text-black hover:bg-black/5"
+                }`}
             >
               {link.label}
             </a>
