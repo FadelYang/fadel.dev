@@ -1,5 +1,6 @@
 'use client'
 
+import MainTag from "@/components/ui/main_tag";
 import { experiences } from "@/lib/dummy_data";
 import { useEffect, useRef, useState } from "react";
 
@@ -59,12 +60,7 @@ function TimelineItem({ exp, index }: { exp: typeof experiences[0]; index: numbe
 
         <div className="flex flex-wrap gap-2">
           {exp.tags.map((tag) => (
-            <span
-              key={tag}
-              className="px-3 py-1 rounded-full text-xs font-semibold border border-black/10 text-black/50"
-            >
-              {tag}
-            </span>
+            <MainTag tag={tag} key={tag} />
           ))}
         </div>
       </div>
