@@ -55,19 +55,19 @@ export default function ComingSoon() {
           Under Construction
         </div>
 
-        {/* Headline */}
+        {/* Headline — smaller on mobile, bigger on md+ */}
         <h1
-          className={`text-5xl md:text-7xl font-black tracking-tight text-black leading-[1.05] mb-4 transition-all duration-700 delay-150 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+          className={`text-4xl sm:text-5xl md:text-7xl font-black tracking-tight text-black leading-[1.1] mb-4 transition-all duration-700 delay-150 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
           style={{ fontFamily: "'Syne', sans-serif" }}
         >
           Something{" "}
           <span className="relative inline-block">
             <span className="relative z-10 text-violet-600">cool</span>
-            <span className="absolute bottom-1 left-0 w-full h-3 bg-violet-100 -z-0 rounded" />
+            <span className="absolute bottom-1 left-0 w-full h-3 bg-violet-100 z-0 rounded" />
           </span>
           <br />
-          is coming
-          <span className="text-violet-500 inline-block w-8 text-left">{dots}</span>
+          {/* Dots sit inline but with fixed width so they never cause reflow */}
+          is coming<span className="text-violet-500 inline-block min-w-8 text-left">{dots}</span>
         </h1>
 
         {/* Subtext */}
@@ -78,19 +78,19 @@ export default function ComingSoon() {
           building this space. Check back soon or reach out in the meantime.
         </p>
 
-        {/* CTA */}
+        {/* CTA — stacks vertically on mobile */}
         <div
-          className={`flex flex-wrap items-center justify-center gap-3 mb-16 transition-all duration-700 delay-[250ms] ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+          className={`flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 mb-16 w-full sm:w-auto transition-all duration-700 delay-[250ms] ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
         >
           <a
             href="/"
-            className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-black text-white text-sm font-semibold hover:bg-violet-600 transition-colors duration-200"
+            className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-black text-white text-sm font-semibold hover:bg-violet-600 transition-colors duration-200"
           >
             Go to homepage
           </a>
           <a
-            href="fadelanumah@gmail.com"
-            className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-black text-white text-sm font-semibold hover:bg-violet-600 transition-colors duration-200"
+            href="mailto:fadelanumah@gmail.com"
+            className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-black text-white text-sm font-semibold hover:bg-violet-600 transition-colors duration-200"
           >
             Get in touch
             <ArrowRight size={15} />
