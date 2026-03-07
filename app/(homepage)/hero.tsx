@@ -125,7 +125,7 @@ export default function Hero() {
             <span className="text-xs text-black/30 uppercase tracking-widest">Find me on</span>
             <div className="h-px w-8 bg-black/10" />
             <a
-              href="https://github.com"
+              href="https://github.com/FadelYang"
               target="_blank"
               rel="noopener noreferrer"
               className="text-black/40 hover:text-black transition-colors duration-200"

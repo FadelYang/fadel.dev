@@ -109,7 +109,7 @@ export default function ComingSoon() {
           <span className="text-xs text-black/30 uppercase tracking-widest">Find me on</span>
           <div className="h-px w-8 bg-black/10" />
           <a
-            href="https://github.com"
+            href="https://github.com/FadelYang"
             target="_blank"
             rel="noopener noreferrer"
             className="text-black/40 hover:text-black transition-colors duration-200"
@@ -117,7 +117,7 @@ export default function ComingSoon() {
             <Github size={18} />
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/fadela-numah-kadenza-0305751ab/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-black/40 hover:text-violet-600 transition-colors duration-200"
