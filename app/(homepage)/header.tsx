@@ -16,15 +16,15 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 backdrop-blur-md border-b border-black/10">
-      <div className="max-w-5xl mx-auto px-6 h-16 flex items-center">
+      <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between md:grid md:grid-cols-3">
 
-        {/* Logo — always far left */}
-        <a href="/" className="text-black font-bold text-lg tracking-tight whitespace-nowrap">
+        {/* Logo — left */}
+        <a href="/" className="text-black font-bold text-lg tracking-tight whitespace-nowrap md:justify-self-start">
           Fadela Numah Kadenza<span className="text-violet-500">.</span>
         </a>
 
-        {/* Desktop Nav — centered with auto margins */}
-        <NavigationMenu.Root className="hidden md:flex flex-1 justify-center">
+        {/* Desktop Nav — perfectly centered */}
+        <NavigationMenu.Root className="hidden md:flex justify-self-center">
           <NavigationMenu.List className="flex items-center gap-1 list-none m-0 p-0">
             {links.map((link) => (
               <NavigationMenu.Item key={link.href}>
@@ -39,8 +39,8 @@ export default function Header() {
           </NavigationMenu.List>
         </NavigationMenu.Root>
 
-        {/* Right side — pushed to far right with ml-auto */}
-        <div className="ml-auto flex items-center gap-3">
+        {/* Right side — CTA + hamburger */}
+        <div className="flex items-center justify-end gap-3 flex-shrink-0">
           <a
             href="/contact"
             className="hidden md:block px-4 py-2 rounded-lg bg-violet-600 hover:bg-violet-500 text-white text-sm font-semibold transition-colors duration-200"
