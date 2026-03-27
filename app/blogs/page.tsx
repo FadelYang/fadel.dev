@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import Header from '../(homepage)/header';
-import BlogPage from './card';
+import BlogPageClient from './page-hero';
 import { getAllPosts } from '@/lib/blog';
 
 export default function Blogs() {
@@ -11,7 +11,7 @@ export default function Blogs() {
       <Suspense>
         <Header />
       </Suspense>
-      <BlogPage posts={posts}/>
+      <BlogPageClient posts={posts} />
     </div>
   );
 }
