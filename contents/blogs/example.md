@@ -4,7 +4,6 @@ date: "2026-03-27"
 excerpt: "Lorem ipsum dolor sit testing"
 tags: ["Testing"]
 featured: false
-language: ["indonesia"]
 ---
 
 # This Is Just Example

@@ -2,7 +2,9 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
-const postsDir = path.join(process.cwd(), "contents/blogs");
+const blogPostDir = path.join(process.cwd(), "contents/blogs");
+const projectDir = path.join(process.cwd(), "contents/projects");
+let postsDir = blogPostDir;
 
 export type Post = {
   slug: string;
@@ -15,7 +17,16 @@ export type Post = {
   readingTime: string;
 };
 
-export function getAllPosts(): Post[] {
+export function getAllPosts(type: string): Post[] {
+  switch (type) {
+    case "blogs":
+      postsDir = blogPostDir;
+    case "projects":
+      postsDir = projectDir;
+    default:
+      break;
+  }
+
   if (!fs.existsSync(postsDir)) return [];
 
   const files = fs.readdirSync(postsDir).filter((f) => f.endsWith(".md"));
@@ -43,7 +54,16 @@ export function getAllPosts(): Post[] {
   return posts.sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
-export function getPostBySlug(slug: string) {
+export function getPostBySlug(slug: string, type: string) {
+  switch (type) {
+    case "blogs":
+      postsDir = blogPostDir;
+    case "projects":
+      postsDir = projectDir;
+    default:
+      break;
+  }
+
   const filePath = path.join(postsDir, `${slug}.md`);
   if (!fs.existsSync(filePath)) return null;
 

@@ -4,7 +4,7 @@ import BlogPageClient from './page-hero';
 import { getAllPosts } from '@/lib/blog';
 
 export default function Blogs() {
-  const posts = getAllPosts();
+  const posts = getAllPosts("blogs");
 
   return (
     <div>

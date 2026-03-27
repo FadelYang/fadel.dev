@@ -10,7 +10,7 @@ import { ArrowLeft, Clock, Calendar, Tag } from "lucide-react";
 
 // Pre-generate all blog post routes at build time
 export async function generateStaticParams() {
-  const posts = getAllPosts();
+  const posts = getAllPosts("blogs");
   return posts.map((post) => ({ slug: post.slug }));
 }
 
@@ -29,7 +29,7 @@ export default async function BlogPostPage({
 }) {
   const { slug } = await params; 
 
-  const post = getPostBySlug(slug);
+  const post = getPostBySlug(slug, "blogs");
 
   if (!post) notFound();
 
