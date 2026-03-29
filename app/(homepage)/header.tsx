@@ -5,6 +5,7 @@ import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import { Menu, X } from "lucide-react";
 import ProgressBar from "@/components/ui/progress_bar";
 import { usePathname } from "next/navigation";
+import HireMeModal from "./hire-modal";
 
 const links = [
   { label: "Home", href: "/" },
@@ -50,13 +51,10 @@ export default function Header() {
         </NavigationMenu.Root>
 
         {/* Right side — CTA + hamburger */}
-        <div className="flex items-center justify-end gap-3 flex-shrink-0">
-          <a
-            href="/contact"
-            className="hidden md:block px-4 py-2 rounded-lg bg-violet-600 hover:bg-violet-500 text-white text-sm font-semibold transition-colors duration-200"
-          >
-            Hire me
-          </a>
+        <div className="flex items-center justify-end gap-3 shrink-0">
+          <div className="hidden md:block">
+            <HireMeModal />
+          </div>
 
           <button
             onClick={() => setMenuOpen(!menuOpen)}
@@ -87,12 +85,9 @@ export default function Header() {
               {link.label}
             </a>
           ))}
-          <a
-            href="/contact"
-            className="mt-2 px-4 py-3 rounded-lg bg-violet-600 hover:bg-violet-500 text-white text-sm font-semibold text-center transition-colors duration-200"
-          >
-            Hire me
-          </a>
+          <div className="hidden md:block">
+            <HireMeModal />
+          </div>
         </nav>
       )}
     </header>
