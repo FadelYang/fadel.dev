@@ -7,7 +7,7 @@ import { X, FileText, Mail, ArrowRight, ArrowLeft, Download } from "lucide-react
 // ── CV Modal ───────────────────────────────────────────────
 function CVModal({ onClose, onBack }: { onClose: () => void; onBack: () => void }) {
   return createPortal(
-    <div className="fixed inset-0 z-[999] flex items-center justify-center px-4">
+    <div className="fixed inset-0 z-999 flex items-center justify-center px-4">
       <div className="absolute inset-0 bg-black/40 backdrop-blur-md" onClick={onClose} />
 
       <div
@@ -19,7 +19,7 @@ function CVModal({ onClose, onBack }: { onClose: () => void; onBack: () => void 
         <div className="flex items-center justify-between px-6 py-4 border-b border-black/10">
           <button
             onClick={onBack}
-            className="inline-flex items-center gap-2 text-sm text-black/40 hover:text-black transition-colors duration-200 group"
+            className="inline-flex items-center gap-2 text-sm text-black/40 hover:text-black transition-colors duration-200 group hover:cursor-pointer"
           >
             <ArrowLeft size={15} className="group-hover:-translate-x-0.5 transition-transform duration-200" />
             Back
@@ -40,7 +40,7 @@ function CVModal({ onClose, onBack }: { onClose: () => void; onBack: () => void 
             </a>
             <button
               onClick={onClose}
-              className="w-8 h-8 rounded-full border border-black/10 flex items-center justify-center text-black/40 hover:text-black hover:border-black/20 transition-colors duration-200"
+              className="w-8 h-8 rounded-full border border-black/10 flex items-center justify-center text-black/40 hover:text-black hover:border-black/20 transition-colors duration-200 hover:cursor-pointer"
             >
               <X size={15} />
             </button>
@@ -75,7 +75,7 @@ function HireMeDialog({ onClose, onViewCV }: { onClose: () => void; onViewCV: ()
       >
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 w-8 h-8 rounded-full border border-black/10 flex items-center justify-center text-black/40 hover:text-black hover:border-black/20 transition-colors duration-200"
+          className="absolute top-4 right-4 w-8 h-8 rounded-full border border-black/10 flex items-center justify-center text-black/40 hover:text-black hover:border-black/20 transition-colors duration-200 hover:cursor-pointer"
         >
           <X size={15} />
         </button>
@@ -104,7 +104,7 @@ function HireMeDialog({ onClose, onViewCV }: { onClose: () => void; onViewCV: ()
             <div className="w-10 h-10 rounded-lg bg-violet-100 flex items-center justify-center flex-shrink-0 group-hover:bg-violet-200 transition-colors duration-200">
               <FileText size={18} className="text-violet-600" />
             </div>
-            <div className="flex-1">
+            <div className="flex-1 hover:cursor-pointer">
               <p className="text-sm font-bold text-black">View my CV</p>
               <p className="text-xs text-black/40 mt-0.5">See my experience and skills</p>
             </div>
@@ -164,7 +164,7 @@ export default function HireMeModal() {
     <>
       <button
         onClick={() => setView("hire")}
-        className="px-4 py-2 rounded-lg bg-violet-600 hover:bg-violet-500 text-white text-sm font-semibold transition-colors duration-200"
+        className="px-4 py-2 rounded-lg bg-violet-600 hover:bg-violet-500 text-white text-sm font-semibold transition-colors duration-200 hover:cursor-pointer"
       >
         Hire me
       </button>
