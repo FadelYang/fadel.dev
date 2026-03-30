@@ -14,9 +14,9 @@ const contacts = [
   },
   {
     label: "WhatsApp",
-    value: "+62 xxx xxxx xxxx",
+    value: "+62 8515 630 5768",
     description: "For quick chats",
-    href: "https://wa.me/62xxxxxxxxxx",
+    href: "https://wa.me/6285156305768",
     icon: MessageCircle,
     iconBg: "bg-emerald-500 group-hover:bg-emerald-600",
   },
