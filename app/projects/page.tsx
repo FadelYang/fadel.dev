@@ -8,9 +8,6 @@ export default function Blogs() {
 
   return (
     <div>
-      <Suspense>
-        <Header />
-      </Suspense>
       <ProjectPageClient posts={posts} />
     </div>
   );
