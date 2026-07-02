@@ -6,7 +6,7 @@ tags: ["Machine Learning", "Tensorflow", "Python", "Roboflow"]
 languages: ["English"]
 featured: true
 type: "projects"
-isDraft: true
+isDraft: false
 ---
 
 # TLDR
