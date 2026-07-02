@@ -67,9 +67,16 @@ export default function ProjectPageClient({ posts }: { posts: Post[] }) {
 
         {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {rest.map((post, i) => (
-            <PostCard key={post.slug} post={post} index={i} visible={visible} />
-          ))}
+          {rest
+            .filter((post) => !post.isDraft && process.env.NODE_ENV === "production")
+            .map((post, i) => (
+              <PostCard
+                key={post.slug}
+                post={post}
+                index={i}
+                visible={visible}
+              />
+            ))}
         </div>
 
         {/* Empty state */}

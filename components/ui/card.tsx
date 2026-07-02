@@ -7,6 +7,10 @@ import { ArrowRight, Clock } from "lucide-react";
 
 // ── Featured Post Card ─────────────────────────────────────
 export function FeaturedCard({ post, visible }: { post: Post; visible: boolean }) {
+  if (process.env.NODE_ENV === "production" && post.isDraft) {
+    return null;
+  }
+
   return (
     <Link href={post.type === "blogs" ? `/blogs/${post.slug}` : `/projects/${post.slug}`} className="group block">
       <article
@@ -36,6 +40,14 @@ export function FeaturedCard({ post, visible }: { post: Post; visible: boolean }
               ))}
             </div>
 
+            <div className="flex flex-wrap gap-2 mb-6">
+              {post.languages.map((tag) => (
+                <span key={tag} className="px-3 py-1 rounded-full text-xs font-semibold border border-black/10 text-black/50">
+                  {tag}
+                </span>
+              ))}
+            </div>
+
             <div className="flex items-center gap-4 text-xs text-black/40">
               <span>{new Date(post.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</span>
               <span>·</span>
@@ -53,8 +65,8 @@ export function FeaturedCard({ post, visible }: { post: Post; visible: boolean }
 }
 
 // ── Regular Post Card ──────────────────────────────────────
-export function PostCard({ post, index, visible }: { post: Post; index: number; visible: boolean }) {  
-  
+export function PostCard({ post, index, visible }: { post: Post; index: number; visible: boolean }) {
+
   return (
     <Link
       href={post.type === "blogs" ? `/blogs/${post.slug}` : `/projects/${post.slug}`}

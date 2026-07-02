@@ -96,7 +96,7 @@ export default function Hero() {
             className={`flex flex-wrap gap-2 mb-10 transition-all duration-700 delay-[250ms] ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
           >
             {stacks.map((tag) => (
-             <MainTag tag={tag} key={tag}/>
+              <MainTag tag={tag} key={tag} />
             ))}
           </div>
 

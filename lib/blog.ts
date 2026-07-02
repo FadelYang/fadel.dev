@@ -18,9 +18,10 @@ export type Post = {
   featured?: boolean;
   readingTime: string;
   languages: string[]; // indonesia, english
+  isDraft: boolean;
 };
 
-function resolvePostsDir(type: string) {  
+function resolvePostsDir(type: string) {
   switch (type) {
     case "blogs":
       return blogPostDir;
@@ -59,6 +60,7 @@ export function getAllPosts(type: string): Post[] {
         readingTime,
         languages: data.languages ?? [],
         type: data.type,
+        isDraft: data.isDraft,
       };
     })
     .sort((a, b) => (a.date < b.date ? 1 : -1));

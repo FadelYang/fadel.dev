@@ -1,12 +1,14 @@
 import { getPostBySlug, getAllPosts } from "@/lib/blog";
 import { notFound } from "next/navigation";
 import { remark } from "remark";
+import remarkRehype from "remark-rehype";
+import rehypeHighlight from "rehype-highlight";
+import rehypeStringify from "rehype-stringify";
 import remarkGfm from "remark-gfm";
 import remarkHtml from "remark-html";
 import Link from "next/link";
-import fs from "fs";
-import path from "path";
 import { ArrowLeft, Clock, Calendar, Tag } from "lucide-react";
+import rehypePrettyCode from "rehype-pretty-code";
 
 // Pre-generate all blog post routes at build time
 export async function generateStaticParams() {
@@ -17,7 +19,11 @@ export async function generateStaticParams() {
 async function markdownToHtml(markdown: string): Promise<string> {
   const result = await remark()
     .use(remarkGfm)
-    .use(remarkHtml, { sanitize: false })
+    .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypePrettyCode, {
+      theme: "github-dark",
+    })
+    .use(rehypeStringify, { allowDangerousHtml: true })
     .process(markdown);
   return result.toString();
 }
@@ -25,9 +31,9 @@ async function markdownToHtml(markdown: string): Promise<string> {
 export default async function BlogPostPage({
   params,
 }: {
-  params:  Promise<{ slug: string }>;
+  params: Promise<{ slug: string }>;
 }) {
-  const { slug } = await params; 
+  const { slug } = await params;
 
   const post = getPostBySlug(slug, "projects");
 
