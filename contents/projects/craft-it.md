@@ -23,8 +23,8 @@ The overall workflow consists of the following stages: data gathering, data labe
 
 The data gathering stage involves collecting images of various types of waste, including plastic, paper, glass, and organic waste. The dataset was assembled from multiple sources, primarily Kaggle and Roboflow, to ensure sufficient diversity and coverage for training the image classification model.
 
-<figure class="flex flex-col justify-center items-center mb-5">
-  <img src="/post-images/data-gathering.webp" alt="Data Gathering" />
+<figure class="w-full max-w-full flex flex-col justify-center items-center mb-5">
+  <img src="/post-images/data-gathering.webp" alt="Data Gathering" class="w-full max-w-full rounded-xl" />
   <figcaption class="text-center text-xs text-gray-500">
     Images collected from Kaggle and Roboflow.
   </figcaption>
@@ -36,8 +36,8 @@ For the data labeling and cleaning stage, I used **Roboflow**, a platform that s
 
 When labeling a large number of images, it is not always necessary to annotate every image manually. Roboflow supports assisted annotation workflows, including AI-powered labeling models that can automatically generate annotations, significantly reducing the time and effort required.
 
-<figure class="flex flex-col justify-center items-center mb-5">
-  <img src="/post-images/image-preprocessing.webp" alt="Image Preprocessing" />
+<figure class="w-full max-w-full flex flex-col justify-center items-center mb-5">
+  <img src="/post-images/image-preprocessing.webp" alt="Image Preprocessing" class="w-full max-w-full rounded-xl" />
   <figcaption class="text-center text-xs text-gray-500">
     Data Preprocessing
   </figcaption>
@@ -255,7 +255,7 @@ _history = model.fit(
 )
 ```
 
-## Testing the Trained Model with New Images
+### Testing the Trained Model with New Images
 
 After the training process was completed, the model was evaluated using images from the validation dataset to observe how well it generalized to unseen data. Rather than evaluating only numerical metrics, I also performed a qualitative inspection by comparing the model's predictions with the ground truth labels.
 
@@ -316,14 +316,14 @@ for index in random_indices:
 
 The results showed that the trained model was able to correctly identify the waste categories for most validation images. Comparing the predicted labels with the ground truth labels also helped verify that the model had successfully learned meaningful visual features and generalized well beyond the training dataset.
 
-<figure class="flex flex-col justify-center items-center mb-5">
-  <img src="/post-images/classification-result.webp" alt="Testing With New Image" />
+<figure class="w-full max-w-full flex flex-col justify-center items-center mb-5">
+  <img src="/post-images/classification-result.webp" alt="Testing With New Image" class="w-full max-w-full rounded-xl" />
   <figcaption class="text-center text-xs text-gray-500">
     The classification result (yes it still sucked 😭)
   </figcaption>
 </figure>
 
-# the Final Result
+# The Final Result
 
 After the model was successfully trained and evaluated, it was handed over to the **Cloud Computing** team for deployment. Their responsibility was to prepare the backend service that exposed the model through an API, allowing the **Mobile Development** team to integrate the image classification feature into the Android application.
 
@@ -331,8 +331,8 @@ This collaboration enabled the machine learning model to be used in the final ap
 
 The following screenshot shows the final implementation of the waste classification feature in the Android application:
 
-<figure class="flex flex-col justify-center items-center mb-5">
-  <img src="/post-images/final-result-preview.webp" alt="The Final Result Preview" />
+<figure class="w-full max-w-full flex flex-col justify-center items-center mb-5">
+  <img src="/post-images/final-result-preview.webp" alt="The Final Result Preview" class="w-full max-w-full rounded-xl" />
   <figcaption class="text-center text-xs text-gray-500">
     The preview of the final result
   </figcaption>
