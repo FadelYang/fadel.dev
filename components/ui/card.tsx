@@ -8,7 +8,7 @@ import { ArrowRight, Clock } from "lucide-react";
 // ── Featured Post Card ─────────────────────────────────────
 export function FeaturedCard({ post, visible }: { post: Post; visible: boolean }) {
   return (
-    <Link href={`/blogs/${post.slug}`} className="group block">
+    <Link href={post.type === "blogs" ? `/blogs/${post.slug}` : `/projects/${post.slug}`} className="group block">
       <article
         className={`relative rounded-2xl border border-black/10 bg-gradient-to-br from-violet-50 via-white to-white p-8 md:p-10 hover:border-violet-300 transition-all duration-300 hover:shadow-lg hover:shadow-violet-100 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
         style={{ transition: "opacity 0.7s ease 0.25s, transform 0.7s ease 0.25s" }}
@@ -53,15 +53,25 @@ export function FeaturedCard({ post, visible }: { post: Post; visible: boolean }
 }
 
 // ── Regular Post Card ──────────────────────────────────────
-export function PostCard({ post, index, visible }: { post: Post; index: number; visible: boolean }) {
+export function PostCard({ post, index, visible }: { post: Post; index: number; visible: boolean }) {  
+  
   return (
-    <Link href={`/blogs/${post.slug}`} className="group block">
+    <Link
+      href={post.type === "blogs" ? `/blogs/${post.slug}` : `/projects/${post.slug}`}
+      className="group block">
       <article
         className={`h-full rounded-2xl border border-black/10 bg-white p-6 hover:border-violet-300 hover:shadow-md hover:shadow-violet-100 transition-all duration-300 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
         style={{ transition: `opacity 0.6s ease ${0.35 + index * 0.08}s, transform 0.6s ease ${0.35 + index * 0.08}s` }}
       >
         <div className="flex flex-wrap gap-1.5 mb-4">
           {post.tags.slice(0, 2).map((tag) => (
+            <span key={tag} className="px-2 py-0.5 rounded-full text-xs font-semibold border border-violet-200 text-violet-600 bg-violet-50">
+              {tag}
+            </span>
+          ))}
+        </div>
+        <div className="flex flex-wrap gap-1.5 mb-4">
+          {post.languages.slice(0, 2).map((tag) => (
             <span key={tag} className="px-2 py-0.5 rounded-full text-xs font-semibold border border-violet-200 text-violet-600 bg-violet-50">
               {tag}
             </span>

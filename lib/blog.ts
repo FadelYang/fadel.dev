@@ -9,6 +9,7 @@ let postsDir = blogPostDir;
 
 export type Post = {
   slug: string;
+  type: string;
   title: string;
   date: string;
   excerpt: string;
@@ -57,6 +58,7 @@ export function getAllPosts(type: string): Post[] {
         featured: data.featured ?? false,
         readingTime,
         languages: data.languages ?? [],
+        type: data.type,
       };
     })
     .sort((a, b) => (a.date < b.date ? 1 : -1));
@@ -84,5 +86,6 @@ export function getPostBySlug(slug: string, type: string) {
     featured: data.featured ?? false,
     readingTime: `${Math.max(1, Math.round(words / 200))} min read`,
     content,
+    type: data.type,
   };
 }
