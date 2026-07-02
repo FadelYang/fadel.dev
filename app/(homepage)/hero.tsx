@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { ArrowRight, Github, Linkedin } from "lucide-react";
 import MainTag from "@/components/ui/main_tag";
 import { stacks } from "@/lib/dummy_data";
+import Link from "next/link";
 
 const roles = ["Frontend.", "Backend.", "AI Engineer."];
 
@@ -103,19 +104,19 @@ export default function Hero() {
           <div
             className={`flex flex-wrap items-center gap-3 mb-16 transition-all duration-700 delay-300 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
           >
-            <a
+            <Link
               href="/projects"
               className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-black text-white text-sm font-semibold hover:bg-violet-600 transition-colors duration-200"
             >
               View my work
               <ArrowRight size={15} />
-            </a>
-            <a
+            </Link>
+            <Link
               href="/contact"
               className="inline-flex items-center gap-2 px-5 py-3 rounded-lg border border-black/10 text-black text-sm font-semibold hover:border-violet-400 hover:text-violet-600 transition-colors duration-200"
             >
               Get in touch
-            </a>
+            </Link>
           </div>
 
           {/* Socials */}

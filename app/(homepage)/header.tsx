@@ -6,6 +6,7 @@ import { Menu, X } from "lucide-react";
 import ProgressBar from "@/components/ui/progress_bar";
 import { usePathname } from "next/navigation";
 import HireMeModal from "./hire-modal";
+import Link from "next/link";
 
 const links = [
   { label: "Home", href: "/" },
@@ -26,24 +27,26 @@ export default function Header() {
       <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between md:grid md:grid-cols-3">
 
         {/* Logo — left */}
-        <a href="/" className="text-black font-bold text-lg tracking-tight whitespace-nowrap md:justify-self-start">
+        <Link href="/" className="text-black font-bold text-lg tracking-tight whitespace-nowrap md:justify-self-start">
           Fadela Numah Kadenza<span className="text-violet-500">.</span>
-        </a>
+        </Link>
 
         {/* Desktop Nav — perfectly centered */}
         <NavigationMenu.Root className="hidden md:flex justify-self-center">
           <NavigationMenu.List className="flex items-center gap-1 list-none m-0 p-0">
             {links.map((link) => (
               <NavigationMenu.Item key={link.href}>
-                <NavigationMenu.Link
-                  href={link.href}
-                  className={`block px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200
-                    ${isActive(link.href)
-                      ? "text-violet-600 bg-violet-50"
-                      : "text-black/60 hover:text-black hover:bg-black/5"
-                    }`}
-                >
-                  {link.label}
+                <NavigationMenu.Link asChild>
+                  <Link
+                    href={link.href}
+                    className={`block px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200
+                      ${isActive(link.href)
+                        ? "text-violet-600 bg-violet-50"
+                        : "text-black/60 hover:text-black hover:bg-black/5"
+                      }`}
+                  >
+                    {link.label}
+                  </Link>
                 </NavigationMenu.Link>
               </NavigationMenu.Item>
             ))}
@@ -72,7 +75,7 @@ export default function Header() {
       {menuOpen && (
         <nav className="md:hidden border-t border-black/10 px-6 py-4 flex flex-col gap-1">
           {links.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
               onClick={() => setMenuOpen(false)}
@@ -83,7 +86,7 @@ export default function Header() {
                 }`}
             >
               {link.label}
-            </a>
+            </Link>
           ))}
           <div className="hidden md:block">
             <HireMeModal />
