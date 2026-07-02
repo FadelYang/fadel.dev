@@ -41,5 +41,5 @@ yarn-error.log*
 next-env.d.ts
 
 # example content
-/content/blogs/example.md
-/content/projects/example.md
+/contents/blogs/example.md
+/contents/projects/example.md
