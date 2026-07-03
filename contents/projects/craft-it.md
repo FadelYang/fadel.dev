@@ -1,7 +1,7 @@
 ---
 title: "Craft It Multi Label Image Classification Model"
-date: "2026-03-27"
-excerpt: "An image classification and object detection model to detect waste category"
+date: "2026-07-02"
+excerpt: "An image classification and object detection model to detect waste category."
 tags: ["Machine Learning", "Tensorflow", "Python", "Roboflow"]
 languages: ["English"]
 featured: true
