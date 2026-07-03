@@ -68,7 +68,7 @@ export default function ProjectPageClient({ posts }: { posts: Post[] }) {
         {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {rest
-            .filter((post) => !post.isDraft && process.env.NODE_ENV === "production")
+            .filter((post) => process.env.NODE_ENV !== "production" || !post.isDraft)
             .map((post, i) => (
               <PostCard
                 key={post.slug}
