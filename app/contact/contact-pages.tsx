@@ -63,7 +63,7 @@ export default function ContactPage() {
         }}
       />
 
-      <div className="relative max-w-5xl mx-auto px-6 py-24 w-full">
+      <div className="relative max-w-5xl mx-auto px-6 pt-12 pb-24 w-full">
         <div className="max-w-2xl">
 
           {/* Label */}

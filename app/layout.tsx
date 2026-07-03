@@ -4,6 +4,7 @@ import './globals.css';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { Suspense } from 'react';
 import Header from './(homepage)/header';
+import ScrollToTop from '@/components/scroll-to-top';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -31,6 +32,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <ScrollToTop />
         <Suspense>
           <Header />
         </Suspense>

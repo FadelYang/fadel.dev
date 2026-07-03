@@ -25,7 +25,7 @@ export const experiences = [
         I am contributed as a backend developer in the HRIS (Tesis) Cycle 2 project, using Node.js, Express.js, Prisma ORM, and PostgreSQL as the main technology stack. I actively participated in daily and weekly standups to report task progress and worked closely with frontend developers to ensure their requirements were met. My main contribution was delivering tasks related to overtime management for internal use cases. Additionally, I worked as an individual contributor on the Lab as a Service project, where I built APIs for dashboard data and other management-related processes. 
         I successfully delivered tasks that involved serving data for dashboards, managing business process data, and debugging multiple errors to improve system reliability.
       `,
-    tags: ["Express.JS", "Node.js", "PostgreSQL"],
+    tags: ["Express.js", "Node.js", "PostgreSQL"],
   },
   {
     role: "Web Developer",
@@ -61,7 +61,7 @@ export const experiences = [
       `
       Open web development services from scratch that meet customer needs, from simple company profiles to complex business management systems.
       `,
-    tags: ["Laravel", "MySQL", "Node.JS", "React", "Tailwind", "Bootstrap", "Express.JS", "PHP"],
+    tags: ["Laravel", "MySQL", "Node.JS", "React", "Tailwind", "Bootstrap", "Express.js", "PHP"],
   },
   {
     role: "Web Software Engineer",

@@ -34,7 +34,7 @@ export function FeaturedCard({ post, visible }: { post: Post; visible: boolean }
 
             <div className="flex flex-wrap gap-2 mb-6">
               {post.tags.map((tag) => (
-                <span key={tag} className="px-3 py-1 rounded-full text-xs font-semibold border border-black/10 text-black/50">
+                <span key={tag} className="px-2 py-0.5 rounded-full text-xs font-semibold border border-violet-200 text-violet-600 bg-violet-50">
                   {tag}
                 </span>
               ))}

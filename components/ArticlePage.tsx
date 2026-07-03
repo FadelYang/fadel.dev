@@ -94,7 +94,7 @@ export default async function ArticlePage({ post, type }: ArticlePageProps) {
         <div className="absolute -top-32 -right-32 w-130 h-130 bg-violet-100 rounded-full blur-3xl opacity-40" />
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 py-16 relative z-10">
+      <div className="max-w-6xl mx-auto px-6 pt-8 pb-16 relative z-10">
         <div className="flex flex-col lg:flex-row gap-12 lg:items-start">
 
           {/* Desktop Table of Contents Sidebar - Sticky & left-aligned */}

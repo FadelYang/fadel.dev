@@ -32,7 +32,7 @@ export default function BlogPageClient({ posts }: { posts: Post[] }) {
         }}
       />
 
-      <div className="relative max-w-5xl mx-auto px-6 py-20">
+      <div className="relative max-w-5xl mx-auto px-6 pt-10 pb-20">
 
         {/* Header */}
         <div className="mb-14">

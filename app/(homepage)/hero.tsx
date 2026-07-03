@@ -46,7 +46,7 @@ export default function Hero() {
         }}
       />
 
-      <div className="relative max-w-5xl mx-auto px-6 py-24 w-full flex flex-col md:flex-row items-center gap-12">
+      <div className="relative max-w-5xl mx-auto px-6 pt-12 pb-24 w-full flex flex-col md:flex-row items-center gap-12">
 
         {/* LEFT — Text content */}
         <div className="flex-1 min-w-0">
