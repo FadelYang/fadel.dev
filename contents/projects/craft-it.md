@@ -1,4 +1,5 @@
 ---
+id: "b8192a18-707a-430a-be49-7bb2b775c515"
 title: "Craft It Multi Label Image Classification Model"
 date: "2026-07-02"
 excerpt: "An image classification and object detection model to detect waste category."
