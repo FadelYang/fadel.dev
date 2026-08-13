@@ -5,8 +5,6 @@ import matter from "gray-matter";
 const blogPostDir = path.join(process.cwd(), "contents/blogs");
 const projectDir = path.join(process.cwd(), "contents/projects");
 
-let postsDir = blogPostDir;
-
 export type Post = {
   slug: string;
   type: string;
@@ -14,7 +12,7 @@ export type Post = {
   date: string;
   excerpt: string;
   tags: string[];
-  cover?: string;
+  cover?: string | null;
   featured?: boolean;
   readingTime: string;
   languages: string[]; // indonesia, english
@@ -30,6 +28,25 @@ function resolvePostsDir(type: string) {
     default:
       return blogPostDir;
   }
+}
+
+function extractFirstImage(content: string): string | null {
+  // Regex to match Markdown image: ![alt](url)
+  const mdImageRegex = /!\[.*?\]\(([^)\s]+)(?:\s+["'].*?["'])?\)/;
+  // Regex to match HTML image: <img ... src="url" ...>
+  const htmlImageRegex = /<img\s+[^>]*src=["']([^"']+)["']/i;
+
+  const mdMatch = content.match(mdImageRegex);
+  if (mdMatch && mdMatch[1]) {
+    return mdMatch[1];
+  }
+
+  const htmlMatch = content.match(htmlImageRegex);
+  if (htmlMatch && htmlMatch[1]) {
+    return htmlMatch[1];
+  }
+
+  return null;
 }
 
 export function getAllPosts(type: string): Post[] {
@@ -49,13 +66,18 @@ export function getAllPosts(type: string): Post[] {
       const words = content.trim().split(/\s+/).length;
       const readingTime = `${Math.max(1, Math.round(words / 200))} min read`;
 
+      let cover = data.cover ?? null;
+      if (!cover) {
+        cover = extractFirstImage(content);
+      }
+
       return {
         slug,
         title: data.title ?? "Untitled",
         date: data.date ?? "",
         excerpt: data.excerpt ?? "",
         tags: data.tags ?? [],
-        cover: data.cover ?? null,
+        cover,
         featured: data.featured ?? false,
         readingTime,
         languages: data.languages ?? [],
@@ -78,13 +100,18 @@ export function getPostBySlug(slug: string, type: string) {
 
   const words = content.trim().split(/\s+/).length;
 
+  let cover = data.cover ?? null;
+  if (!cover) {
+    cover = extractFirstImage(content);
+  }
+
   return {
     slug,
     title: data.title ?? "Untitled",
     date: data.date ?? "",
     excerpt: data.excerpt ?? "",
     tags: data.tags ?? [],
-    cover: data.cover ?? null,
+    cover,
     featured: data.featured ?? false,
     readingTime: `${Math.max(1, Math.round(words / 200))} min read`,
     content,

@@ -16,6 +16,7 @@ interface ArticlePageProps {
     tags: string[];
     readingTime: string;
     content: string;
+    cover?: string | null;
   };
   type: "blogs" | "projects";
 }
@@ -165,6 +166,17 @@ export default async function ArticlePage({ post, type }: ArticlePageProps) {
                 </span>
               </div>
             </div>
+
+            {/* Cover Image */}
+            {post.cover && (
+              <div className="w-full aspect-video md:aspect-[21/9] rounded-2xl overflow-hidden border border-black/10 mb-10 relative bg-black/5">
+                <img
+                  src={post.cover}
+                  alt={post.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            )}
 
             {/* Markdown content */}
             <div
