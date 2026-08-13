@@ -70,7 +70,7 @@ function TimelineItem({ exp, index }: { exp: typeof experiences[0]; index: numbe
 
 export default function Experience() {
   return (
-    <section className="bg-white py-24">
+    <section className="bg-white pt-24 pb-12">
       <div className="max-w-5xl mx-auto px-6">
 
         {/* Section header */}
