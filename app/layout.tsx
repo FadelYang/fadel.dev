@@ -5,6 +5,7 @@ import { GoogleAnalytics } from '@next/third-parties/google';
 import { Suspense } from 'react';
 import Header from './(homepage)/header';
 import ScrollToTop from '@/components/scroll-to-top';
+import Footer from '@/components/footer';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -30,13 +31,16 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
       >
         <ScrollToTop />
         <Suspense>
           <Header />
         </Suspense>
-        {children}
+        <div className="flex-grow flex flex-col">
+          {children}
+        </div>
+        <Footer />
       </body>
       <GoogleAnalytics gaId='G-1VCH9H6NML' />
     </html>
