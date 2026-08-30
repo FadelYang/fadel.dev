@@ -1,6 +1,6 @@
 ---
 id: "99a68972-81fd-4541-9152-e200c2e9efdd"
-title: "Bookumi - A Book Recommender System"
+title: "Bookumi"
 date: "2026-07-03"
 excerpt: "A website that integrates a hybrid recommender system to recommend books that users may like."
 tags: ["Machine Learning", "FastAPI", "Python", "Next.js", "TypeSCript", "Zustand"]

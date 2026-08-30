@@ -1,5 +1,5 @@
 ---
-title: "Fadel's Personal Website"
+title: "fadelanumah.dev"
 date: "2026-07-03"
 excerpt: "A website for my personal journey record and portfolio"
 tags: ["Vibe coding", "Next.js", "MDX"]
