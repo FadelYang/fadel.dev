@@ -58,9 +58,8 @@ export default function Projects({ projects }: ProjectsProps) {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-16 gap-4">
           <div
-            className={`transition-all duration-700 ${
-              visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-            }`}
+            className={`transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}
           >
             <span className="text-xs font-semibold uppercase tracking-widest text-violet-500 mb-3 block">
               Projects
@@ -69,14 +68,13 @@ export default function Projects({ projects }: ProjectsProps) {
               className="text-4xl md:text-5xl font-black text-black tracking-tight"
               style={{ fontFamily: "'Syne', sans-serif" }}
             >
-              Selected works.
+              Selected projects.
             </h2>
           </div>
 
           <div
-            className={`transition-all duration-700 delay-100 ${
-              visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-            }`}
+            className={`transition-all duration-700 delay-100 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}
           >
             <Link
               href="/projects"
