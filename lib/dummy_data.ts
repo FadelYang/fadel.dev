@@ -8,10 +8,13 @@ export const experiences = [
     period: "April 2025 — Present",
     description:
       `
-        Contributed to maintaining the company's production ready website, Fiberzone, woeking on both frontend using React and Next.JS and backend using Go and PHP. 
-        I also involved in maintaining their billing system, which manages products or services and promotional offers for each coverage area. 
-        I also contributed to the development of their newest billing system website, built with Go, Gin, and PostgreSQL where I was responsible for developing the product, promo, transaction and dashboard modules. 
-        Currently, active contributing in develop their internal system for improve business productivity.
+        Contributed to maintaining the company's production-ready website, Fiberzone, working on both the frontend using React and Next.js and the backend using Go and PHP. I also collaborated with QA engineers, DevOps, developers, and other divisions to plan requirements, develop features, and ensure successful deployment and delivery.
+
+        I was also involved in maintaining the company's billing system, which manages available products or services and promotional offers for each coverage area. In addition, I contributed to the development of the company's newest billing system website, built with Go, Gin, and PostgreSQL, where I was responsible for developing the product, promo, transaction, and dashboard modules.
+
+        I contributed to developing an internal system-log feature using the ELK Stack (Elasticsearch, Logstash, and Kibana) to track and monitor data changes. I also refactored several modules to improve request and response performance, successfully reducing request times by approximately 2× through improvements to database relationships and queries.
+
+        Additionally, I contributed to developing an internet subscription feature for B2B customers with customizable invoice dates and developed features for generating and gathering tax reports to support the Finance division. Through these projects, I have been actively involved in improving the company's internal systems, business productivity, and operational processes.
       `,
     tags: ["React", "Next.js", "TypeScript", "Tailwind", "Go", "PostgreSQL", "MySQL", "PHP", "Redis", "Minio"],
   },
@@ -22,10 +25,13 @@ export const experiences = [
     period: "Nov 2024 — May 2025",
     description:
       `
-        I am contributed as a backend developer in the HRIS (Tesis) Cycle 2 project, using Node.js, Express.js, Prisma ORM, and PostgreSQL as the main technology stack. I actively participated in daily and weekly standups to report task progress and worked closely with frontend developers to ensure their requirements were met. My main contribution was delivering tasks related to overtime management for internal use cases. Additionally, I worked as an individual contributor on the Lab as a Service project, where I built APIs for dashboard data and other management-related processes. 
-        I successfully delivered tasks that involved serving data for dashboards, managing business process data, and debugging multiple errors to improve system reliability.
+        Contributed as a Backend Developer in the development of the HRIS (Tesis) Cycle 2 project, using Node.js, Express.js, Prisma ORM, and PostgreSQL as the main technology stack. I actively participated in daily and weekly standups to report task progress and collaborated closely with frontend developers to understand and fulfill their API requirements.
+
+        I was responsible for developing and delivering features related to overtime management for internal use cases. I also contributed as an individual contributor to the Lab as a Service project, where I developed endpoints for dashboard data and other management-related APIs. Additionally, I successfully developed APIs to support business processes, served data required for dashboard functionality, and debugged and resolved various issues across different business processes.
+
+        Through these projects, I gained experience in backend API development, database management, cross-functional collaboration, and troubleshooting real-world business processes.
       `,
-    tags: ["Express.js", "Node.js", "PostgreSQL"],
+    tags: ["Express.js", "Node.js", "PostgreSQL", "Prisma ORM"],
   },
   {
     role: "Web Developer",
@@ -34,9 +40,9 @@ export const experiences = [
     period: "Nov 2024 — Mar 2025",
     description:
       `
-        I worked with the R&D team as a frontend web developer to develop a chatbot website using React.js and Firebase, 
-        where I also learned and implemented the atomic design pattern. I collaborated with backend developers to plan new features and API specifications, 
-        ensuring smooth integration. Additionally, I contributed to developing a client company profile using React.js and TypeScript. As a backend developer, I also created an authentication API using Nest.js.
+        Collaborated with the R&D team as a Frontend Web Developer to develop a chatbot website using React.js and Firebase. During the project, I learned and implemented the Atomic Design pattern in React.js to create a more structured and maintainable frontend architecture.
+
+        I also worked closely with backend developers to plan new features and define API specifications. In addition, I contributed to the development of a client company's profile website using React.js and TypeScript. I also took on backend development responsibilities by using Nest.js to develop authentication APIs, gaining experience across both frontend and backend development.
       `,
     tags: ["React", "Nest.JS", "PostgreSQL", "Prisma", "Wordpress", "Tailwind", "Firebase"],
   },
@@ -47,8 +53,7 @@ export const experiences = [
     period: "Jun 2024 — Oct 2024",
     description:
       `
-      I was involved in daily IT support operations, assisting with various technical issues. 
-      Additionally, I helped companies build their company profile websites using Laravel and MySQL, ensuring functionality and reliability
+        Supported the company's daily operations as an IT Support, assisting with various technical and operational needs. I also contributed to developing company profile websites for clients using Laravel and MySQL, gaining hands-on experience in web development and database management.
       `,
     tags: ["Laravel", "MySQL", "Node.JS", "React", "Tailwind", "Bootstrap"],
   },
@@ -59,7 +64,7 @@ export const experiences = [
     period: "Jul 2023 — Present",
     description:
       `
-      Open web development services from scratch that meet customer needs, from simple company profiles to complex business management systems.
+        Open web development services from scratch that meet customer needs, from simple company profiles to complex business management systems.
       `,
     tags: ["Laravel", "MySQL", "Node.JS", "React", "Tailwind", "Bootstrap", "Express.js", "PHP"],
   },
@@ -70,9 +75,9 @@ export const experiences = [
     period: "Feb 2023 — Jun 2023",
     description:
       `
-      As a software engineer intern, I was involved in several projects as an individual contributor, working with a team in agile methodology, participate in daily and weekly stand up as routine, Using Laravel, jquery, 
-      and bootstrap as main stack, Using git and gitlab as version control system, Learning implementation of repository pattern in Laravel, Learning unit and feature testing with PHPUnit, Learning create open api with Laravel framework, 
-      and Implement technical SEO for the website.
+        Contributed to several projects as an individual contributor while also collaborating with development teams in an Agile environment. Used Laravel as the primary web development framework, following established development best practices and coding standards. Worked collaboratively with team members using Git and GitLab for version control and source code management.
+
+        During these projects, I gained experience implementing various software design patterns and writing unit tests to improve code quality and maintainability. I also implemented technical SEO practices to improve website visibility and increase organic website traffic.
       `,
     tags: ["Laravel", "MySQL", "Bootstrap", "PHP", "PostgreSQL"],
   },

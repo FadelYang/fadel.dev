@@ -56,7 +56,17 @@ function TimelineItem({ exp, index }: { exp: typeof experiences[0]; index: numbe
 
         <h3 className="text-lg font-bold text-black tracking-tight">{exp.role}</h3>
         <p className="text-sm font-semibold text-violet-600 mb-3">{exp.company}</p>
-        <p className="text-sm text-black/50 leading-relaxed mb-4">{exp.description}</p>
+        <div className="space-y-4 mb-4">
+          {exp.description
+            .split(/\n\s*\n/)
+            .map((p) => p.trim())
+            .filter(Boolean)
+            .map((paragraph, i) => (
+              <p key={i} className="text-sm text-black/50 leading-relaxed">
+                {paragraph}
+              </p>
+            ))}
+        </div>
 
         <div className="flex flex-wrap gap-2">
           {exp.tags.map((tag) => (
