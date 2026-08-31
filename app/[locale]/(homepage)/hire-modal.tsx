@@ -94,7 +94,7 @@ function HireMeDialog({ onClose, onViewCV, dict }: { onClose: () => void; onView
             {activeLocaleText(dict, "Let's work together.", "Mari bekerja sama.")}
           </h2>
           <p className="text-sm text-black/50 leading-relaxed">
-            {activeLocaleText(dict, "I'm open for freelance projects and part-time work. Pick how you'd like to connect.", "Saya terbuka untuk proyek freelance dan pekerjaan paruh waktu. Pilih cara Anda ingin terhubung.")}
+            {activeLocaleText(dict, "I'm open for freelance projects and part-time work. Pick how you'd like to connect.", "Saya terbuka untuk proyek freelance dan pekerjaan paruh waktu. Silakan pilih cara yang paling nyaman bagi Anda untuk terhubung.")}
           </p>
         </div>
 
