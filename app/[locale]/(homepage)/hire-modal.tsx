@@ -3,9 +3,11 @@
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { X, FileText, Mail, ArrowRight, ArrowLeft, Download } from "lucide-react";
+import en from '@/dictionaries/en.json';
+import id from '@/dictionaries/id.json';
 
 // ── CV Modal ───────────────────────────────────────────────
-function CVModal({ onClose, onBack }: { onClose: () => void; onBack: () => void }) {
+function CVModal({ onClose, onBack, dict }: { onClose: () => void; onBack: () => void; dict: typeof en }) {
   return createPortal(
     <div className="fixed inset-0 z-999 flex items-center justify-center px-4">
       <div className="absolute inset-0 bg-black/40 backdrop-blur-md" onClick={onClose} />
@@ -22,7 +24,7 @@ function CVModal({ onClose, onBack }: { onClose: () => void; onBack: () => void 
             className="inline-flex items-center gap-2 text-sm text-black/40 hover:text-black transition-colors duration-200 group hover:cursor-pointer"
           >
             <ArrowLeft size={15} className="group-hover:-translate-x-0.5 transition-transform duration-200" />
-            Back
+            {dict.hire_modal.back}
           </button>
 
           <span className="text-sm font-bold text-black" style={{ fontFamily: "'Syne', sans-serif" }}>
@@ -63,7 +65,7 @@ function CVModal({ onClose, onBack }: { onClose: () => void; onBack: () => void 
 }
 
 // ── Hire Me Dialog ─────────────────────────────────────────
-function HireMeDialog({ onClose, onViewCV }: { onClose: () => void; onViewCV: () => void }) {
+function HireMeDialog({ onClose, onViewCV, dict }: { onClose: () => void; onViewCV: () => void; dict: typeof en }) {
   return createPortal(
     <div className="fixed inset-0 z-[999] flex items-center justify-center px-4">
       <div className="absolute inset-0 bg-black/40 backdrop-blur-md" onClick={onClose} />
@@ -83,30 +85,30 @@ function HireMeDialog({ onClose, onViewCV }: { onClose: () => void; onViewCV: ()
         <div className="mb-8">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-violet-200 bg-violet-50 text-violet-700 text-xs font-semibold uppercase tracking-widest mb-4">
             <span className="w-1.5 h-1.5 rounded-full bg-violet-500 animate-pulse" />
-            Available now
+            {dict.contact.available_now}
           </div>
           <h2
             className="text-2xl font-black text-black tracking-tight mb-2"
             style={{ fontFamily: "'Syne', sans-serif" }}
           >
-            Let's work together.
+            {activeLocaleText(dict, "Let's work together.", "Mari bekerja sama.")}
           </h2>
           <p className="text-sm text-black/50 leading-relaxed">
-            I'm open for freelance projects and part-time work. Pick how you'd like to connect.
+            {activeLocaleText(dict, "I'm open for freelance projects and part-time work. Pick how you'd like to connect.", "Saya terbuka untuk proyek freelance dan pekerjaan paruh waktu. Pilih cara Anda ingin terhubung.")}
           </p>
         </div>
 
         <div className="flex flex-col gap-3">
           <button
             onClick={onViewCV}
-            className="group flex items-center gap-4 p-4 rounded-xl border border-black/10 hover:border-violet-300 hover:bg-violet-50 transition-all duration-200 text-left w-full"
+            className="group flex items-center gap-4 p-4 rounded-xl border border-black/10 hover:border-violet-300 hover:bg-violet-50 transition-all duration-200 text-left w-full hover:cursor-pointer"
           >
             <div className="w-10 h-10 rounded-lg bg-violet-100 flex items-center justify-center flex-shrink-0 group-hover:bg-violet-200 transition-colors duration-200">
               <FileText size={18} className="text-violet-600" />
             </div>
-            <div className="flex-1 hover:cursor-pointer">
-              <p className="text-sm font-bold text-black">View my CV</p>
-              <p className="text-xs text-black/40 mt-0.5">See my experience and skills</p>
+            <div className="flex-1">
+              <p className="text-sm font-bold text-black">{dict.hire_modal.view_cv}</p>
+              <p className="text-xs text-black/40 mt-0.5">{dict.hire_modal.see_skills}</p>
             </div>
             <ArrowRight size={15} className="text-black/20 group-hover:text-violet-500 group-hover:translate-x-0.5 transition-all duration-200" />
           </button>
@@ -119,7 +121,7 @@ function HireMeDialog({ onClose, onViewCV }: { onClose: () => void; onViewCV: ()
               <Mail size={18} className="text-white" />
             </div>
             <div className="flex-1">
-              <p className="text-sm font-bold text-black">Send me an email</p>
+              <p className="text-sm font-bold text-black">{dict.hire_modal.send_email}</p>
               <p className="text-xs text-black/40 mt-0.5">fadelanumah@gmail.com</p>
             </div>
             <ArrowRight size={15} className="text-black/20 group-hover:text-violet-500 group-hover:translate-x-0.5 transition-all duration-200" />
@@ -127,7 +129,7 @@ function HireMeDialog({ onClose, onViewCV }: { onClose: () => void; onViewCV: ()
         </div>
 
         <p className="text-xs text-black/30 text-center mt-6">
-          Usually respond within 24 hours.
+          {dict.contact.respond_time_short}
         </p>
       </div>
     </div>,
@@ -135,10 +137,17 @@ function HireMeDialog({ onClose, onViewCV }: { onClose: () => void; onViewCV: ()
   );
 }
 
+function activeLocaleText(dict: typeof en, enText: string, idText: string) {
+  return dict.header.home === "Beranda" ? idText : enText;
+}
+
 // ── Main Export ────────────────────────────────────────────
-export default function HireMeModal() {
+export default function HireMeModal({ locale }: { locale?: string }) {
   const [view, setView] = useState<"closed" | "hire" | "cv">("closed");
   const [mounted, setMounted] = useState(false);
+
+  const activeLocale = locale || 'en';
+  const dict = activeLocale === 'id' ? id : en;
 
   // Wait for DOM to be available before rendering portal
   useEffect(() => {
@@ -166,13 +175,14 @@ export default function HireMeModal() {
         onClick={() => setView("hire")}
         className="px-4 py-2 rounded-lg bg-violet-600 hover:bg-violet-500 text-white text-sm font-semibold transition-colors duration-200 hover:cursor-pointer"
       >
-        Hire me
+        {dict.header.hire_me}
       </button>
 
       {mounted && view === "hire" && (
         <HireMeDialog
           onClose={() => setView("closed")}
           onViewCV={() => setView("cv")}
+          dict={dict}
         />
       )}
 
@@ -180,6 +190,7 @@ export default function HireMeModal() {
         <CVModal
           onClose={() => setView("closed")}
           onBack={() => setView("hire")}
+          dict={dict}
         />
       )}
 

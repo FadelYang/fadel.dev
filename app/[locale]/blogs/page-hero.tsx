@@ -3,10 +3,16 @@
 import { FeaturedCard, PostCard } from '@/components/ui/card';
 import { Post } from '@/lib/blog';
 import { useEffect, useState } from 'react';
+import { useParams } from 'next/navigation';
+import en from '@/dictionaries/en.json';
+import id from '@/dictionaries/id.json';
 
 // ── Blog Page Client ───────────────────────────────────────
 export default function BlogPageClient({ posts }: { posts: Post[] }) {
   const [visible, setVisible] = useState(false);
+  const params = useParams();
+  const locale = (params.locale as string) || 'en';
+  const dict = locale === 'id' ? id : en;
 
   useEffect(() => {
     const t = setTimeout(() => setVisible(true), 100);
@@ -37,16 +43,16 @@ export default function BlogPageClient({ posts }: { posts: Post[] }) {
         {/* Header */}
         <div className="mb-14">
           <span className={`text-xs font-semibold uppercase tracking-widest text-violet-500 mb-3 block transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
-            Blog
+            {dict.blogs.badge}
           </span>
           <h1
             className={`text-4xl md:text-6xl font-black text-black tracking-tight mb-4 transition-all duration-700 delay-100 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
             style={{ fontFamily: "'Syne', sans-serif" }}
           >
-            Thoughts & writings.
+            {dict.blogs.title}
           </h1>
           <p className={`text-black/50 text-lg max-w-xl leading-relaxed transition-all duration-700 delay-150 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
-            I write about fullstack development, AI engineering, and things I learn along the way.
+            {dict.blogs.description}
           </p>
         </div>
 
@@ -60,7 +66,7 @@ export default function BlogPageClient({ posts }: { posts: Post[] }) {
         {/* Divider */}
         {rest.length > 0 && (
           <div className={`flex items-center gap-4 mb-8 transition-all duration-700 delay-300 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
-            <span className="text-xs font-semibold uppercase tracking-widest text-black/30">All posts</span>
+            <span className="text-xs font-semibold uppercase tracking-widest text-black/30">{dict.blogs.all_posts}</span>
             <div className="flex-1 h-px bg-black/10" />
           </div>
         )}
@@ -75,8 +81,8 @@ export default function BlogPageClient({ posts }: { posts: Post[] }) {
         {/* Empty state */}
         {posts.length === 0 && (
           <div className="text-center py-24 text-black/30">
-            <p className="text-lg font-semibold">No posts yet.</p>
-            <p className="text-sm mt-1">Check back soon!</p>
+            <p className="text-lg font-semibold">{dict.blogs.no_posts}</p>
+            <p className="text-sm mt-1">{dict.blogs.check_back}</p>
           </div>
         )}
       </div>

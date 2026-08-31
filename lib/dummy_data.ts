@@ -1,6 +1,15 @@
-export const stacks = ["React", "Next.js", "Laravel", "Node.js", "Python", "Go", "REST", "AI & ML Model Integration", "PostgreSQL", "Redis"]
+export const stacks = ["React", "Next.js", "Laravel", "Node.js", "Python", "Go", "REST", "AI & ML Model Integration", "PostgreSQL", "Redis"];
 
-export const experiences = [
+export type Experience = {
+  role: string;
+  company: string;
+  type: string;
+  period: string;
+  description: string;
+  tags: string[];
+};
+
+export const experiencesEn: Experience[] = [
   {
     role: "Staff Fullstack Developer",
     company: "PT Varnion Technology Semesta",
@@ -82,3 +91,90 @@ export const experiences = [
     tags: ["Laravel", "MySQL", "Bootstrap", "PHP", "PostgreSQL"],
   },
 ];
+
+export const experiencesId: Experience[] = [
+  {
+    role: "Staff Fullstack Developer",
+    company: "PT Varnion Technology Semesta",
+    type: "Full-time",
+    period: "April 2025 — Sekarang",
+    description:
+      `
+        Berkontribusi dalam memelihara situs web siap produksi perusahaan, Fiberzone, bekerja pada frontend menggunakan React dan Next.js serta backend menggunakan Go dan PHP. Saya juga berkolaborasi dengan QA engineer, DevOps, developer, dan divisi lain untuk merencanakan kebutuhan, mengembangkan fitur, serta memastikan keberhasilan deployment dan delivery.
+
+        Saya juga terlibat dalam memelihara sistem penagihan (billing) perusahaan, yang mengelola produk atau layanan yang tersedia serta penawaran promosi untuk setiap area cakupan. Selain itu, saya berkontribusi pada pengembangan situs web sistem penagihan terbaru perusahaan, yang dibangun dengan Go, Gin, dan PostgreSQL, di mana saya bertanggung jawab mengembangkan modul produk, promo, transaksi, dan dasbor.
+
+        Saya berkontribusi dalam mengembangkan fitur log sistem internal menggunakan ELK Stack (Elasticsearch, Logstash, dan Kibana) untuk melacak dan memantau perubahan data. Saya juga melakukan refaktorisasi pada beberapa modul untuk meningkatkan kinerja request dan response, berhasil memangkas waktu request sekitar 2× melalui peningkatan hubungan database dan query.
+
+        Selain itu, saya berkontribusi dalam mengembangkan fitur langganan internet untuk pelanggan B2B dengan tanggal faktur yang dapat disesuaikan dan mengembangkan fitur untuk menghasilkan serta mengumpulkan laporan pajak untuk mendukung divisi Keuangan. Melalui proyek-proyek ini, saya telah terlibat aktif dalam meningkatkan sistem internal perusahaan, produktivitas bisnis, dan proses operasional.
+      `,
+    tags: ["React", "Next.js", "TypeScript", "Tailwind", "Go", "PostgreSQL", "MySQL", "PHP", "Redis", "Minio"],
+  },
+  {
+    role: "Back End Developer",
+    company: "PT Sinergi Merah Putih",
+    type: "Part-time",
+    period: "Nov 2024 — Mei 2025",
+    description:
+      `
+        Berkontribusi sebagai Backend Developer dalam pengembangan proyek HRIS (Tesis) Siklus 2, menggunakan Node.js, Express.js, Prisma ORM, dan PostgreSQL sebagai stack teknologi utama. Saya berpartisipasi aktif dalam standup harian dan mingguan untuk melaporkan kemajuan tugas dan berkolaborasi erat dengan frontend developer untuk memahami dan memenuhi kebutuhan API mereka.
+
+        Saya bertanggung jawab mengembangkan dan mendistribusikan fitur yang berkaitan dengan manajemen lembur untuk kasus penggunaan internal. Saya juga berkontribusi sebagai kontributor individu pada proyek Lab as a Service, di mana saya mengembangkan endpoint untuk data dasbor dan API terkait manajemen lainnya. Selain itu, saya berhasil mengembangkan API untuk mendukung proses bisnis, menyajikan data yang diperlukan untuk fungsi dasbor, serta men-debug dan menyelesaikan berbagai masalah di berbagai proses bisnis.
+
+        Melalui proyek-proyek ini, saya memperoleh pengalaman dalam pengembangan API backend, manajemen database, kolaborasi lintas fungsi, dan penyelesaian masalah proses bisnis di dunia nyata.
+      `,
+    tags: ["Express.js", "Node.js", "PostgreSQL", "Prisma ORM"],
+  },
+  {
+    role: "Web Developer",
+    company: "WIR Group",
+    type: "Internship",
+    period: "Nov 2024 — Mar 2025",
+    description:
+      `
+        Kolaborasi dengan tim R&D sebagai Frontend Web Developer untuk mengembangkan situs web chatbot menggunakan React.js dan Firebase. Selama proyek berlangsung, saya mempelajari dan menerapkan pola Atomic Design di React.js untuk menciptakan arsitektur frontend yang lebih terstruktur dan mudah dipelihara.
+
+        Saya juga bekerja sama erat dengan backend developer untuk merencanakan fitur baru dan menetapkan spesifikasi API. Selain itu, saya berkontribusi pada pengembangan situs web profil perusahaan klien menggunakan React.js dan TypeScript. Saya juga mengambil tanggung jawab pengembangan backend dengan menggunakan Nest.js untuk mengembangkan API autentikasi, memperoleh pengalaman baik di pengembangan frontend maupun backend.
+      `,
+    tags: ["React", "Nest.JS", "PostgreSQL", "Prisma", "Wordpress", "Tailwind", "Firebase"],
+  },
+  {
+    role: "Full Stack Developer",
+    company: "Vapezoo",
+    type: "Internship",
+    period: "Jun 2024 — Okt 2024",
+    description:
+      `
+        Mendukung operasional harian perusahaan sebagai IT Support, membantu berbagai kebutuhan teknis dan operasional. Saya juga berkontribusi dalam mengembangkan situs web profil perusahaan untuk klien menggunakan Laravel dan MySQL, mendapatkan pengalaman langsung dalam pengembangan web dan manajemen database.
+      `,
+    tags: ["Laravel", "MySQL", "Node.JS", "React", "Tailwind", "Bootstrap"],
+  },
+  {
+    role: "Web Developer",
+    company: "Pekerja Mandiri",
+    type: "Freelance",
+    period: "Jul 2023 — Sekarang",
+    description:
+      `
+        Membuka layanan pengembangan web dari awal yang memenuhi kebutuhan pelanggan, mulai dari profil perusahaan sederhana hingga sistem manajemen bisnis yang kompleks.
+      `,
+    tags: ["Laravel", "MySQL", "Node.JS", "React", "Tailwind", "Bootstrap", "Express.js", "PHP"],
+  },
+  {
+    role: "Web Software Engineer",
+    company: "Nusantara Beta Studio",
+    type: "Internship",
+    period: "Feb 2023 — Jun 2023",
+    description:
+      `
+        Berkontribusi pada beberapa proyek sebagai kontributor individu sekaligus berkolaborasi dengan tim pengembangan dalam lingkungan Agile. Menggunakan Laravel sebagai framework pengembangan web utama, mengikuti praktik terbaik pengembangan dan standar penulisan kode yang telah ditetapkan. Bekerja secara kolaboratif dengan anggota tim menggunakan Git dan GitLab untuk kontrol versi dan manajemen kode sumber.
+
+        Selama proyek ini, saya memperoleh pengalaman dalam menerapkan berbagai pola desain perangkat lunak (software design patterns) dan menulis unit test untuk meningkatkan kualitas kode dan kemudahan pemeliharaan. Saya juga menerapkan praktik SEO teknis untuk meningkatkan visibilitas situs web dan meningkatkan lalu lintas situs web organik.
+      `,
+    tags: ["Laravel", "MySQL", "Bootstrap", "PHP", "PostgreSQL"],
+  },
+];
+
+export function getExperiences(locale: string): Experience[] {
+  return locale === 'id' ? experiencesId : experiencesEn;
+}

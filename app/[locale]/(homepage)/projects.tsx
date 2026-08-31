@@ -5,14 +5,20 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { Post } from '@/lib/blog';
 import { PostCard } from '@/components/ui/card';
+import en from '@/dictionaries/en.json';
+import id from '@/dictionaries/id.json';
 
 interface ProjectsProps {
   projects: Post[];
+  locale?: string;
 }
 
-export default function Projects({ projects }: ProjectsProps) {
+export default function Projects({ projects, locale }: ProjectsProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
+
+  const activeLocale = locale || 'en';
+  const dict = activeLocale === 'id' ? id : en;
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -62,13 +68,13 @@ export default function Projects({ projects }: ProjectsProps) {
               }`}
           >
             <span className="text-xs font-semibold uppercase tracking-widest text-violet-500 mb-3 block">
-              Projects
+              {dict.projects.badge}
             </span>
             <h2
               className="text-4xl md:text-5xl font-black text-black tracking-tight"
               style={{ fontFamily: "'Syne', sans-serif" }}
             >
-              Selected projects.
+              {dict.projects.title_selected}
             </h2>
           </div>
 
@@ -77,10 +83,10 @@ export default function Projects({ projects }: ProjectsProps) {
               }`}
           >
             <Link
-              href="/projects"
+              href={`/${activeLocale}/projects`}
               className="inline-flex items-center gap-2 text-sm font-semibold text-black hover:text-violet-600 transition-colors duration-200 group"
             >
-              View all projects
+              {dict.projects.view_all}
               <ArrowRight
                 size={16}
                 className="group-hover:translate-x-1 transition-transform duration-200"
@@ -108,3 +114,4 @@ export default function Projects({ projects }: ProjectsProps) {
     </section>
   );
 }
+

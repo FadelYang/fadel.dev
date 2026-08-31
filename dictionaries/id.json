@@ -1,0 +1,74 @@
+{
+  "header": {
+    "home": "Beranda",
+    "blogs": "Blog",
+    "projects": "Proyek",
+    "contact": "Kontak",
+    "hire_me": "Rekrut saya"
+  },
+  "footer": {
+    "description": "Fullstack Software Engineer membangun aplikasi web end-to-end, merancang API yang skalabel, dan mengintegrasikan model AI.",
+    "navigation": "Navigasi",
+    "connect": "Hubungi",
+    "based_in": "Berbasis di Indonesia ✦ Tersedia di seluruh dunia",
+    "rights_reserved": "Hak cipta dilindungi undang-undang.",
+    "built_with": "Dibuat dengan Next.js & Tailwind CSS"
+  },
+  "hero": {
+    "badge": "Tersedia untuk freelance dan paruh waktu",
+    "title_main": "Fullstack Software",
+    "title_sub": "Engineer.",
+    "role_frontend": "Frontend.",
+    "role_backend": "Backend.",
+    "role_ai": "AI Engineer.",
+    "description": "Saya Fadel — Saya membangun aplikasi web end-to-end, merancang API yang skalabel, dan mengintegrasikan model AI ke produk nyata. Dari UI yang presisi hingga backend yang cerdas.",
+    "view_work": "Lihat karya saya",
+    "get_in_touch": "Hubungi saya",
+    "find_me": "Temukan saya di"
+  },
+  "experience": {
+    "badge": "Pengalaman",
+    "title": "Tempat saya bekerja."
+  },
+  "projects": {
+    "badge": "Proyek",
+    "title_selected": "Proyek pilihan.",
+    "title_all": "Proyek.",
+    "view_all": "Lihat semua proyek",
+    "all_posts": "Semua proyek",
+    "description": "Kumpulan hal yang telah saya rancang dan kembangkan, mengeksplorasi rekayasa fullstack, AI, dan ide produk.",
+    "no_projects": "Belum ada proyek.",
+    "check_back": "Silakan kembali lagi nanti!"
+  },
+  "blogs": {
+    "badge": "Blog",
+    "title": "Pemikiran & tulisan.",
+    "description": "Saya menulis tentang pengembangan fullstack, rekayasa AI, dan hal-hal yang saya pelajari sepanjang jalan.",
+    "no_posts": "Belum ada tulisan.",
+    "check_back": "Silakan kembali lagi nanti!",
+    "all_posts": "Semua tulisan"
+  },
+  "contact": {
+    "badge": "Kontak",
+    "title": "Mari membangun sesuatu bersama.",
+    "description": "Punya proyek atau hanya ingin menyapa? Pilih saluran di bawah — saya selalu terbuka untuk peluang baru dan percakapan.",
+    "respond_time": "Biasanya merespons dalam 24 jam ✦ Berbasis di Indonesia",
+    "respond_time_short": "Biasanya merespons dalam 24 jam.",
+    "available_now": "Tersedia sekarang"
+  },
+  "hire_modal": {
+    "back": "Kembali",
+    "view_cv": "Lihat CV saya",
+    "see_skills": "Lihat pengalaman dan keahlian saya",
+    "send_email": "Kirim saya email"
+  },
+  "coming_soon": {
+    "under_construction": "Dalam Pembangunan",
+    "headline_main": "Sesuatu yang ",
+    "headline_cool": "keren",
+    "headline_coming": " akan segera hadir",
+    "description": "Saya Fadel — Fullstack Software Engineer yang membangun ruang ini. Silakan kembali lagi nanti atau hubungi saya jika ada hal penting.",
+    "go_home": "Kembali ke beranda",
+    "get_in_touch": "Hubungi saya"
+  }
+}

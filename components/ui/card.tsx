@@ -3,22 +3,30 @@
 import { Post } from "@/lib/blog";
 import Link from "next/link";
 import { ArrowRight, Clock } from "lucide-react";
+import { useParams } from "next/navigation";
 
 // ── Featured Post Card ─────────────────────────────────────
 export function FeaturedCard({ post, visible }: { post: Post; visible: boolean }) {
+  const params = useParams();
+  const locale = (params.locale as string) || 'en';
+
   if (process.env.NODE_ENV === "production" && post.isDraft) {
     return null;
   }
 
+  const localizedHref = post.type === "blogs"
+    ? `/${locale}/blogs/${post.slug}`
+    : `/${locale}/projects/${post.slug}`;
+
   return (
-    <Link href={post.type === "blogs" ? `/blogs/${post.slug}` : `/projects/${post.slug}`} className="group block">
+    <Link href={localizedHref} className="group block">
       <article
         className={`relative rounded-2xl border border-black/10 bg-gradient-to-br from-violet-50 via-white to-white p-8 md:p-10 hover:border-violet-300 transition-all duration-300 hover:shadow-lg hover:shadow-violet-100 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
         style={{ transition: "opacity 0.7s ease 0.25s, transform 0.7s ease 0.25s" }}
       >
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-600 text-white text-xs font-semibold uppercase tracking-widest mb-6">
           <span className="w-1.5 h-1.5 rounded-full bg-white/70 animate-pulse" />
-          Featured
+          {locale === 'id' ? 'Unggulan' : 'Featured'}
         </div>
 
         <div className="flex flex-col lg:flex-row gap-8 items-stretch">
@@ -59,7 +67,7 @@ export function FeaturedCard({ post, visible }: { post: Post; visible: boolean }
               </div>
 
               <div className="flex items-center gap-4 text-xs text-black/40">
-                <span>{new Date(post.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</span>
+                <span>{new Date(post.date).toLocaleDateString(locale === 'id' ? 'id-ID' : 'en-US', { year: "numeric", month: "long", day: "numeric" })}</span>
                 <span>·</span>
                 <span className="flex items-center gap-1"><Clock size={11} />{post.readingTime}</span>
               </div>
@@ -77,10 +85,16 @@ export function FeaturedCard({ post, visible }: { post: Post; visible: boolean }
 
 // ── Regular Post Card ──────────────────────────────────────
 export function PostCard({ post, index, visible }: { post: Post; index: number; visible: boolean }) {
+  const params = useParams();
+  const locale = (params.locale as string) || 'en';
+
+  const localizedHref = post.type === "blogs"
+    ? `/${locale}/blogs/${post.slug}`
+    : `/${locale}/projects/${post.slug}`;
 
   return (
     <Link
-      href={post.type === "blogs" ? `/blogs/${post.slug}` : `/projects/${post.slug}`}
+      href={localizedHref}
       className="group block">
       <article
         className={`h-full rounded-2xl border border-black/10 bg-white p-6 hover:border-violet-300 hover:shadow-md hover:shadow-violet-100 transition-all duration-300 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
@@ -121,7 +135,7 @@ export function PostCard({ post, index, visible }: { post: Post; index: number; 
         <p className="text-sm text-black/50 leading-relaxed mb-6 line-clamp-2">{post.excerpt}</p>
 
         <div className="flex items-center justify-between text-xs text-black/40 mt-auto">
-          <span>{new Date(post.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}</span>
+          <span>{new Date(post.date).toLocaleDateString(locale === 'id' ? 'id-ID' : 'en-US', { month: "short", day: "numeric", year: "numeric" })}</span>
           <span className="flex items-center gap-1"><Clock size={11} />{post.readingTime}</span>
         </div>
       </article>

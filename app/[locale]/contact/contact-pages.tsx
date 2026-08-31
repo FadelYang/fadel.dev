@@ -2,44 +2,50 @@
 
 import { useEffect, useState } from "react";
 import { Github, Linkedin, Mail, MessageCircle } from "lucide-react";
-
-const contacts = [
-  {
-    label: "Email",
-    value: "fadelanumah@gmail.com",
-    description: "Best for project inquiries",
-    href: "mailto:fadelanumah@gmail.com",
-    icon: Mail,
-    iconBg: "bg-black group-hover:bg-violet-600",
-  },
-  {
-    label: "WhatsApp",
-    value: "+62 8515 630 5768",
-    description: "For quick chats",
-    href: "https://wa.me/6285156305768",
-    icon: MessageCircle,
-    iconBg: "bg-emerald-500 group-hover:bg-emerald-600",
-  },
-  {
-    label: "LinkedIn",
-    value: "Fadela Numah Kadenza",
-    description: "Let's connect professionally",
-    href: "https://www.linkedin.com/in/fadela-numah-kadenza-0305751ab/",
-    icon: Linkedin,
-    iconBg: "bg-blue-600 group-hover:bg-blue-700",
-  },
-  {
-    label: "GitHub",
-    value: "FadelYang",
-    description: "Check out my open source work",
-    href: "https://github.com/FadelYang",
-    icon: Github,
-    iconBg: "bg-zinc-800 group-hover:bg-black",
-  },
-];
+import { useParams } from "next/navigation";
+import en from '@/dictionaries/en.json';
+import id from '@/dictionaries/id.json';
 
 export default function ContactPage() {
   const [visible, setVisible] = useState(false);
+  const params = useParams();
+  const locale = (params.locale as string) || 'en';
+  const dict = locale === 'id' ? id : en;
+
+  const contacts = [
+    {
+      label: "Email",
+      value: "fadelanumah@gmail.com",
+      description: locale === 'id' ? "Terbaik untuk diskusi proyek" : "Best for project inquiries",
+      href: "mailto:fadelanumah@gmail.com",
+      icon: Mail,
+      iconBg: "bg-black group-hover:bg-violet-600",
+    },
+    {
+      label: "WhatsApp",
+      value: "+62 8515 630 5768",
+      description: locale === 'id' ? "Untuk obrolan cepat" : "For quick chats",
+      href: "https://wa.me/6285156305768",
+      icon: MessageCircle,
+      iconBg: "bg-emerald-500 group-hover:bg-emerald-600",
+    },
+    {
+      label: "LinkedIn",
+      value: "Fadela Numah Kadenza",
+      description: locale === 'id' ? "Mari terhubung secara profesional" : "Let's connect professionally",
+      href: "https://www.linkedin.com/in/fadela-numah-kadenza-0305751ab/",
+      icon: Linkedin,
+      iconBg: "bg-blue-600 group-hover:bg-blue-700",
+    },
+    {
+      label: "GitHub",
+      value: "FadelYang",
+      description: locale === 'id' ? "Lihat proyek open source saya" : "Check out my open source work",
+      href: "https://github.com/FadelYang",
+      icon: Github,
+      iconBg: "bg-zinc-800 group-hover:bg-black",
+    },
+  ];
 
   useEffect(() => {
     const t = setTimeout(() => setVisible(true), 100);
@@ -70,7 +76,7 @@ export default function ContactPage() {
           <span
             className={`text-xs font-semibold uppercase tracking-widest text-violet-500 mb-3 block transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
           >
-            Contact
+            {dict.contact.badge}
           </span>
 
           {/* Headline */}
@@ -78,19 +84,32 @@ export default function ContactPage() {
             className={`text-4xl md:text-6xl font-black text-black tracking-tight leading-[1.05] mb-4 transition-all duration-700 delay-100 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
             style={{ fontFamily: "'Syne', sans-serif" }}
           >
-            Let's build something
-            <br />
-            <span className="relative inline-block">
-              <span className="relative z-10 text-violet-600">together.</span>
-              <span className="absolute bottom-1 left-0 w-full h-3 bg-violet-100 -z-0 rounded" />
-            </span>
+            {locale === 'id' ? (
+              <>
+                Mari membangun sesuatu
+                <br />
+                <span className="relative inline-block">
+                  <span className="relative z-10 text-violet-600">bersama.</span>
+                  <span className="absolute bottom-1 left-0 w-full h-3 bg-violet-100 -z-0 rounded" />
+                </span>
+              </>
+            ) : (
+              <>
+                Let's build something
+                <br />
+                <span className="relative inline-block">
+                  <span className="relative z-10 text-violet-600">together.</span>
+                  <span className="absolute bottom-1 left-0 w-full h-3 bg-violet-100 -z-0 rounded" />
+                </span>
+              </>
+            )}
           </h1>
 
           {/* Subtext */}
           <p
             className={`text-base md:text-lg text-black/50 leading-relaxed mb-12 transition-all duration-700 delay-150 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
           >
-            Have a project in mind or just want to say hi? Pick any channel below — I'm always open to new opportunities and conversations.
+            {dict.contact.description}
           </p>
 
           {/* Contact cards */}
@@ -141,7 +160,7 @@ export default function ContactPage() {
           <p
             className={`text-xs text-black/30 mt-8 transition-all duration-700 delay-[500ms] ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
           >
-            Usually respond within 24 hours ✦ Based in Indonesia
+            {dict.contact.respond_time}
           </p>
         </div>
       </div>

@@ -2,10 +2,16 @@
 
 import { useEffect, useState } from "react";
 import { Github, Linkedin, ArrowRight } from "lucide-react";
+import { useParams } from "next/navigation";
+import en from '@/dictionaries/en.json';
+import id from '@/dictionaries/id.json';
 
 export default function ComingSoon() {
   const [visible, setVisible] = useState(false);
   const [dots, setDots] = useState(".");
+  const params = useParams();
+  const locale = (params.locale as string) || 'en';
+  const dict = locale === 'id' ? id : en;
 
   useEffect(() => {
     const t = setTimeout(() => setVisible(true), 100);
@@ -20,7 +26,7 @@ export default function ComingSoon() {
   }, []);
 
   return (
-    <main className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
+    <main className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white w-full">
 
       {/* Background blobs */}
       <div className="absolute -top-32 -right-32 w-130 h-130 bg-violet-100 rounded-full blur-3xl opacity-50 pointer-events-none" />
@@ -40,7 +46,7 @@ export default function ComingSoon() {
 
         {/* Logo */}
         <a
-          href="/"
+          href={`/${locale}`}
           className={`text-black font-bold text-xl tracking-tight mb-16 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
           style={{ fontFamily: "'Syne', sans-serif" }}
         >
@@ -52,7 +58,7 @@ export default function ComingSoon() {
           className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-violet-200 bg-violet-50 text-violet-700 text-xs font-semibold uppercase tracking-widest mb-8 transition-all duration-700 delay-100 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
         >
           <span className="w-1.5 h-1.5 rounded-full bg-violet-500 animate-pulse" />
-          Under Construction
+          {dict.coming_soon.under_construction}
         </div>
 
         {/* Headline — smaller on mobile, bigger on md+ */}
@@ -60,22 +66,21 @@ export default function ComingSoon() {
           className={`text-4xl sm:text-5xl md:text-7xl font-black tracking-tight text-black leading-[1.1] mb-4 transition-all duration-700 delay-150 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
           style={{ fontFamily: "'Syne', sans-serif" }}
         >
-          Something{" "}
+          {dict.coming_soon.headline_main}{" "}
           <span className="relative inline-block">
-            <span className="relative z-10 text-violet-600">cool</span>
+            <span className="relative z-10 text-violet-600">{dict.coming_soon.headline_cool}</span>
             <span className="absolute bottom-1 left-0 w-full h-3 bg-violet-100 z-0 rounded" />
           </span>
           <br />
           {/* Dots sit inline but with fixed width so they never cause reflow */}
-          is coming<span className="text-violet-500 inline-block min-w-8 text-left">{dots}</span>
+          {dict.coming_soon.headline_coming}<span className="text-violet-500 inline-block min-w-8 text-left">{dots}</span>
         </h1>
 
         {/* Subtext */}
         <p
           className={`text-base md:text-lg text-black/50 max-w-md leading-relaxed mb-10 transition-all duration-700 delay-200 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
         >
-          I'm <span className="text-black font-semibold">Fadel</span> — a Fullstack Software Engineer
-          building this space. Check back soon or reach out in the meantime.
+          {dict.coming_soon.description}
         </p>
 
         {/* CTA — stacks vertically on mobile */}
@@ -83,16 +88,16 @@ export default function ComingSoon() {
           className={`flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 mb-16 w-full sm:w-auto transition-all duration-700 delay-[250ms] ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
         >
           <a
-            href="/"
+            href={`/${locale}`}
             className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-black text-white text-sm font-semibold hover:bg-violet-600 transition-colors duration-200"
           >
-            Go to homepage
+            {dict.coming_soon.go_home}
           </a>
           <a
-            href="/contact"
+            href={`/${locale}/contact`}
             className="inline-flex items-center gap-2 px-5 py-3 rounded-lg border border-black/10 text-black text-sm font-semibold hover:border-violet-400 hover:text-violet-600 transition-colors duration-200"
           >
-            Get in touch
+            {dict.coming_soon.get_in_touch}
             <ArrowRight size={15} />
           </a>
         </div>
@@ -106,7 +111,7 @@ export default function ComingSoon() {
         <div
           className={`flex items-center gap-4 transition-all duration-700 delay-[350ms] ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
         >
-          <span className="text-xs text-black/30 uppercase tracking-widest">Find me on</span>
+          <span className="text-xs text-black/30 uppercase tracking-widest">{dict.hero.find_me}</span>
           <div className="h-px w-8 bg-black/10" />
           <a
             href="https://github.com/FadelYang"

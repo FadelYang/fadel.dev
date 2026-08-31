@@ -2,9 +2,6 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
-const blogPostDir = path.join(process.cwd(), "contents/blogs");
-const projectDir = path.join(process.cwd(), "contents/projects");
-
 export type Post = {
   slug: string;
   type: string;
@@ -19,15 +16,8 @@ export type Post = {
   isDraft: boolean;
 };
 
-function resolvePostsDir(type: string) {
-  switch (type) {
-    case "blogs":
-      return blogPostDir;
-    case "projects":
-      return projectDir;
-    default:
-      return blogPostDir;
-  }
+function resolvePostsDir(type: string, locale: string) {
+  return path.join(process.cwd(), "contents", type, locale);
 }
 
 function extractFirstImage(content: string): string | null {
@@ -49,8 +39,8 @@ function extractFirstImage(content: string): string | null {
   return null;
 }
 
-export function getAllPosts(type: string): Post[] {
-  const postsDir = resolvePostsDir(type);
+export function getAllPosts(type: string, locale: string): Post[] {
+  const postsDir = resolvePostsDir(type, locale);
 
   if (!fs.existsSync(postsDir)) return [];
 
@@ -88,8 +78,8 @@ export function getAllPosts(type: string): Post[] {
     .sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
-export function getPostBySlug(slug: string, type: string) {
-  const postsDir = resolvePostsDir(type);
+export function getPostBySlug(slug: string, type: string, locale: string) {
+  const postsDir = resolvePostsDir(type, locale);
 
   const filePath = path.join(postsDir, `${slug}.md`);
 

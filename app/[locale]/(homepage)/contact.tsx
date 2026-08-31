@@ -2,45 +2,50 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { Github, Linkedin, Mail, MessageCircle } from 'lucide-react';
+import en from '@/dictionaries/en.json';
+import id from '@/dictionaries/id.json';
 
-const contacts = [
-  {
-    label: "Email",
-    value: "fadelanumah@gmail.com",
-    description: "Best for project inquiries",
-    href: "mailto:fadelanumah@gmail.com",
-    icon: Mail,
-    iconBg: "bg-black group-hover:bg-violet-600",
-  },
-  {
-    label: "WhatsApp",
-    value: "+62 8515 630 5768",
-    description: "For quick chats",
-    href: "https://wa.me/6285156305768",
-    icon: MessageCircle,
-    iconBg: "bg-emerald-500 group-hover:bg-emerald-600",
-  },
-  {
-    label: "LinkedIn",
-    value: "Fadela Numah Kadenza",
-    description: "Let's connect professionally",
-    href: "https://www.linkedin.com/in/fadela-numah-kadenza-0305751ab/",
-    icon: Linkedin,
-    iconBg: "bg-blue-600 group-hover:bg-blue-700",
-  },
-  {
-    label: "GitHub",
-    value: "FadelYang",
-    description: "Check out my open source work",
-    href: "https://github.com/FadelYang",
-    icon: Github,
-    iconBg: "bg-zinc-800 group-hover:bg-black",
-  },
-];
-
-export default function Contact() {
+export default function Contact({ locale }: { locale?: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
+
+  const activeLocale = locale || 'en';
+  const dict = activeLocale === 'id' ? id : en;
+
+  const contacts = [
+    {
+      label: "Email",
+      value: "fadelanumah@gmail.com",
+      description: activeLocale === 'id' ? "Terbaik untuk diskusi proyek" : "Best for project inquiries",
+      href: "mailto:fadelanumah@gmail.com",
+      icon: Mail,
+      iconBg: "bg-black group-hover:bg-violet-600",
+    },
+    {
+      label: "WhatsApp",
+      value: "+62 8515 630 5768",
+      description: activeLocale === 'id' ? "Untuk obrolan cepat" : "For quick chats",
+      href: "https://wa.me/6285156305768",
+      icon: MessageCircle,
+      iconBg: "bg-emerald-500 group-hover:bg-emerald-600",
+    },
+    {
+      label: "LinkedIn",
+      value: "Fadela Numah Kadenza",
+      description: activeLocale === 'id' ? "Mari terhubung secara profesional" : "Let's connect professionally",
+      href: "https://www.linkedin.com/in/fadela-numah-kadenza-0305751ab/",
+      icon: Linkedin,
+      iconBg: "bg-blue-600 group-hover:bg-blue-700",
+    },
+    {
+      label: "GitHub",
+      value: "FadelYang",
+      description: activeLocale === 'id' ? "Lihat proyek open source saya" : "Check out my open source work",
+      href: "https://github.com/FadelYang",
+      icon: Github,
+      iconBg: "bg-zinc-800 group-hover:bg-black",
+    },
+  ];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -72,16 +77,16 @@ export default function Contact() {
           }`}
         >
           <span className="text-xs font-semibold uppercase tracking-widest text-violet-500 mb-3 block">
-            Contact
+            {dict.contact.badge}
           </span>
           <h2
             className="text-4xl md:text-5xl font-black text-black tracking-tight"
             style={{ fontFamily: "'Syne', sans-serif" }}
           >
-            Let's build something together.
+            {dict.contact.title}
           </h2>
           <p className="text-base text-black/50 leading-relaxed max-w-2xl mt-4">
-            Have a project in mind or just want to say hi? Pick any channel below — I'm always open to new opportunities and conversations.
+            {dict.contact.description}
           </p>
         </div>
 
@@ -146,3 +151,4 @@ export default function Contact() {
     </section>
   );
 }
+

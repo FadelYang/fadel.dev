@@ -1,0 +1,74 @@
+{
+  "header": {
+    "home": "Home",
+    "blogs": "Blogs",
+    "projects": "Projects",
+    "contact": "Contact",
+    "hire_me": "Hire me"
+  },
+  "footer": {
+    "description": "Fullstack Software Engineer building end-to-end web applications, designing scalable APIs, and integrating AI models.",
+    "navigation": "Navigation",
+    "connect": "Connect",
+    "based_in": "Based in Indonesia ✦ Available worldwide",
+    "rights_reserved": "All rights reserved.",
+    "built_with": "Built with Next.js & Tailwind CSS"
+  },
+  "hero": {
+    "badge": "Available for freelance and part time work",
+    "title_main": "Fullstack Software",
+    "title_sub": "Engineer.",
+    "role_frontend": "Frontend.",
+    "role_backend": "Backend.",
+    "role_ai": "AI Engineer.",
+    "description": "I'm Fadel — I build end-to-end web applications, design scalable APIs, and integrate AI models into real products. From pixel-perfect UIs to intelligent backends.",
+    "view_work": "View my work",
+    "get_in_touch": "Get in touch",
+    "find_me": "Find me on"
+  },
+  "experience": {
+    "badge": "Experience",
+    "title": "Where I've worked."
+  },
+  "projects": {
+    "badge": "Projects",
+    "title_selected": "Selected projects.",
+    "title_all": "Projects.",
+    "view_all": "View all projects",
+    "all_posts": "All posts",
+    "description": "A collection of things I’ve designed and developed, exploring fullstack engineering, AI, and product ideas.",
+    "no_projects": "No projects yet.",
+    "check_back": "Check back soon!"
+  },
+  "blogs": {
+    "badge": "Blog",
+    "title": "Thoughts & writings.",
+    "description": "I write about fullstack development, AI engineering, and things I learn along the way.",
+    "no_posts": "No posts yet.",
+    "check_back": "Check back soon!",
+    "all_posts": "All posts"
+  },
+  "contact": {
+    "badge": "Contact",
+    "title": "Let's build something together.",
+    "description": "Have a project in mind or just want to say hi? Pick any channel below — I'm always open to new opportunities and conversations.",
+    "respond_time": "Usually respond within 24 hours ✦ Based in Indonesia",
+    "respond_time_short": "Usually respond within 24 hours.",
+    "available_now": "Available now"
+  },
+  "hire_modal": {
+    "back": "Back",
+    "view_cv": "View my CV",
+    "see_skills": "See my experience and skills",
+    "send_email": "Send me an email"
+  },
+  "coming_soon": {
+    "under_construction": "Under Construction",
+    "headline_main": "Something ",
+    "headline_cool": "cool",
+    "headline_coming": " is coming",
+    "description": "I'm Fadel — a Fullstack Software Engineer building this space. Check back soon or reach out in the meantime.",
+    "go_home": "Go to homepage",
+    "get_in_touch": "Get in touch"
+  }
+}

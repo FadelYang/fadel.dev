@@ -1,12 +1,13 @@
 import Link from 'next/link';
 import { Github, Linkedin, Mail, MessageCircle } from 'lucide-react';
+import { getDictionary, Locale } from '@/lib/dictionary';
 
 const links = [
-  { label: "Home", href: "/" },
-  { label: "Blogs", href: "/blogs" },
-  { label: "Projects", href: "/projects" },
-  { label: "Contact", href: "/contact" },
-];
+  { labelKey: "home", href: "/" },
+  { labelKey: "blogs", href: "/blogs" },
+  { labelKey: "projects", href: "/projects" },
+  { labelKey: "contact", href: "/contact" },
+] as const;
 
 const socials = [
   {
@@ -31,8 +32,15 @@ const socials = [
   },
 ];
 
-export default function Footer() {
+export default async function Footer({ locale }: { locale?: string }) {
   const currentYear = new Date().getFullYear();
+  const activeLocale = (locale as Locale) || 'en';
+  const dict = await getDictionary(activeLocale);
+
+  const getLocalizedHref = (href: string) => {
+    if (href === '/') return `/${activeLocale}`;
+    return `/${activeLocale}${href}`;
+  };
 
   return (
     <footer className="w-full border-t border-black/10 bg-white mt-auto">
@@ -41,25 +49,25 @@ export default function Footer() {
           
           {/* Logo and Tagline */}
           <div className="flex flex-col gap-4">
-            <Link href="/" className="text-black font-bold text-lg tracking-tight whitespace-nowrap w-fit">
+            <Link href={getLocalizedHref("/")} className="text-black font-bold text-lg tracking-tight whitespace-nowrap w-fit">
               Fadela Numah Kadenza<span className="text-violet-500">.</span>
             </Link>
             <p className="text-sm text-black/50 leading-relaxed max-w-sm">
-              Fullstack Software Engineer building end-to-end web applications, designing scalable APIs, and integrating AI models.
+              {dict.footer.description}
             </p>
           </div>
 
           {/* Quick Links */}
           <div className="flex flex-col gap-4 md:pl-10">
-            <h4 className="text-xs font-semibold uppercase tracking-widest text-black/40">Navigation</h4>
+            <h4 className="text-xs font-semibold uppercase tracking-widest text-black/40">{dict.footer.navigation}</h4>
             <nav className="flex flex-col gap-2.5">
               {links.map((link) => (
                 <Link
                   key={link.href}
-                  href={link.href}
+                  href={getLocalizedHref(link.href)}
                   className="text-sm font-medium text-black/60 hover:text-violet-600 transition-colors duration-200 w-fit"
                 >
-                  {link.label}
+                  {dict.header[link.labelKey]}
                 </Link>
               ))}
             </nav>
@@ -67,7 +75,7 @@ export default function Footer() {
 
           {/* Socials / Contact */}
           <div className="flex flex-col gap-4">
-            <h4 className="text-xs font-semibold uppercase tracking-widest text-black/40">Connect</h4>
+            <h4 className="text-xs font-semibold uppercase tracking-widest text-black/40">{dict.footer.connect}</h4>
             <div className="flex items-center gap-3">
               {socials.map((social) => {
                 const Icon = social.icon;
@@ -85,8 +93,8 @@ export default function Footer() {
                 );
               })}
             </div>
-            <p className="text-xs text-black/30 mt-2">
-              Based in Indonesia ✦ Available worldwide
+            <p className="text-xs text-black/30 mt-2 font-medium">
+              {dict.footer.based_in}
             </p>
           </div>
 
@@ -95,13 +103,14 @@ export default function Footer() {
         {/* Bottom copyright */}
         <div className="border-t border-black/5 mt-10 md:mt-16 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-black/40">
-            &copy; {currentYear} Fadela Numah Kadenza. All rights reserved.
+            &copy; {currentYear} Fadela Numah Kadenza. {dict.footer.rights_reserved}
           </p>
-          <p className="text-xs text-black/30 flex items-center gap-1.5">
-            Built with Next.js & Tailwind CSS
+          <p className="text-xs text-black/30 flex items-center gap-1.5 font-medium">
+            {dict.footer.built_with}
           </p>
         </div>
       </div>
     </footer>
   );
 }
+

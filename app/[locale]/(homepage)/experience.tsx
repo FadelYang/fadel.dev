@@ -1,8 +1,10 @@
 'use client'
 
 import MainTag from "@/components/ui/main_tag";
-import { experiences } from "@/lib/dummy_data";
+import { getExperiences, Experience as ExpType } from "@/lib/dummy_data";
 import { useEffect, useRef, useState } from "react";
+import en from '@/dictionaries/en.json';
+import id from '@/dictionaries/id.json';
 
 const typeColor: Record<string, string> = {
   "Full-time": "text-violet-600 bg-violet-50 border-violet-200",
@@ -12,7 +14,24 @@ const typeColor: Record<string, string> = {
   Internship: "text-blue-600 bg-blue-50 border-blue-200",
 };
 
-function TimelineItem({ exp, index }: { exp: typeof experiences[0]; index: number }) {
+const typeLabels: Record<string, Record<string, string>> = {
+  en: {
+    "Full-time": "Full-time",
+    "Part-time": "Part-time",
+    "Freelance": "Freelance",
+    "Internship": "Internship",
+    "Contract": "Contract"
+  },
+  id: {
+    "Full-time": "Penuh Waktu",
+    "Part-time": "Paruh Waktu",
+    "Freelance": "Freelance",
+    "Internship": "Magang",
+    "Contract": "Kontrak"
+  }
+};
+
+function TimelineItem({ exp, index, total, locale }: { exp: ExpType; index: number; total: number; locale: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
@@ -38,7 +57,7 @@ function TimelineItem({ exp, index }: { exp: typeof experiences[0]; index: numbe
       {/* Timeline spine */}
       <div className="flex flex-col items-center">
         <div className="w-3 h-3 rounded-full bg-violet-500 ring-4 ring-violet-100 mt-1.5 shrink-0" />
-        {index < experiences.length - 1 && (
+        {index < total - 1 && (
           <div className="w-px flex-1 bg-linear-to-b from-violet-200 to-transparent mt-2" />
         )}
       </div>
@@ -50,7 +69,7 @@ function TimelineItem({ exp, index }: { exp: typeof experiences[0]; index: numbe
           <span
             className={`text-xs font-semibold px-2 py-0.5 rounded-full border ${typeColor[exp.type] ?? "text-black/50 bg-black/5 border-black/10"}`}
           >
-            {exp.type}
+            {typeLabels[locale]?.[exp.type] || exp.type}
           </span>
         </div>
 
@@ -78,7 +97,11 @@ function TimelineItem({ exp, index }: { exp: typeof experiences[0]; index: numbe
   );
 }
 
-export default function Experience() {
+export default function Experience({ locale }: { locale?: string }) {
+  const activeLocale = locale || 'en';
+  const dict = activeLocale === 'id' ? id : en;
+  const exps = getExperiences(activeLocale);
+
   return (
     <section className="bg-white pt-24 pb-12">
       <div className="max-w-5xl mx-auto px-6">
@@ -86,20 +109,20 @@ export default function Experience() {
         {/* Section header */}
         <div className="mb-16">
           <span className="text-xs font-semibold uppercase tracking-widest text-violet-500 mb-3 block">
-            Experience
+            {dict.experience.badge}
           </span>
           <h2
             className="text-4xl md:text-5xl font-black text-black tracking-tight"
             style={{ fontFamily: "'Syne', sans-serif" }}
           >
-            Where I've worked.
+            {dict.experience.title}
           </h2>
         </div>
 
         {/* Timeline */}
         <div className="max-w-2xl">
-          {experiences.map((exp, i) => (
-            <TimelineItem key={i} exp={exp} index={i} />
+          {exps.map((exp, i) => (
+            <TimelineItem key={i} exp={exp} index={i} total={exps.length} locale={activeLocale} />
           ))}
         </div>
       </div>

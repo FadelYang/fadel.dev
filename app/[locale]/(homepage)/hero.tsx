@@ -5,13 +5,18 @@ import { ArrowRight, Github, Linkedin } from "lucide-react";
 import MainTag from "@/components/ui/main_tag";
 import { stacks } from "@/lib/dummy_data";
 import Link from "next/link";
+import en from '@/dictionaries/en.json';
+import id from '@/dictionaries/id.json';
 
-const roles = ["Frontend.", "Backend.", "AI Engineer."];
-
-export default function Hero() {
+export default function Hero({ locale }: { locale?: string }) {
   const [visible, setVisible] = useState(false);
   const [roleIndex, setRoleIndex] = useState(0);
   const [fade, setFade] = useState(true);
+
+  const activeLocale = locale || 'en';
+  const dict = activeLocale === 'id' ? id : en;
+
+  const roles = [dict.hero.role_frontend, dict.hero.role_backend, dict.hero.role_ai];
 
   useEffect(() => {
     const t = setTimeout(() => setVisible(true), 100);
@@ -27,7 +32,7 @@ export default function Hero() {
       }, 300);
     }, 2200);
     return () => clearInterval(interval);
-  }, []);
+  }, [roles.length]);
 
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-white">
@@ -56,7 +61,7 @@ export default function Hero() {
             className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-violet-200 bg-violet-50 text-violet-700 text-xs font-semibold uppercase tracking-widest mb-8 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
           >
             <span className="w-1.5 h-1.5 rounded-full bg-violet-500 animate-pulse" />
-            Available for freelance and part time work
+            {dict.hero.badge}
           </div>
 
           {/* Headline */}
@@ -64,9 +69,9 @@ export default function Hero() {
             className={`text-5xl md:text-6xl font-black tracking-tight text-black leading-[1.1] mb-4 transition-all duration-700 delay-100 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
             style={{ fontFamily: "'Syne', sans-serif" }}
           >
-            Fullstack Software
+            {dict.hero.title_main}
             <br />
-            Engineer.
+            {dict.hero.title_sub}
           </h1>
 
           {/* Rotating role */}
@@ -86,9 +91,7 @@ export default function Hero() {
           <p
             className={`text-base md:text-lg text-black/50 max-w-lg leading-relaxed mb-8 transition-all duration-700 delay-200 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
           >
-            I'm <span className="text-black font-semibold">Fadel</span> — I build end-to-end web
-            applications, design scalable APIs, and integrate AI models into real products.
-            From pixel-perfect UIs to intelligent backends.
+            {dict.hero.description}
           </p>
 
           {/* Skill tags */}
@@ -105,17 +108,17 @@ export default function Hero() {
             className={`flex flex-wrap items-center gap-3 mb-16 transition-all duration-700 delay-300 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
           >
             <Link
-              href="/projects"
+              href={`/${activeLocale}/projects`}
               className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-black text-white text-sm font-semibold hover:bg-violet-600 transition-colors duration-200"
             >
-              View my work
+              {dict.hero.view_work}
               <ArrowRight size={15} />
             </Link>
             <Link
-              href="/contact"
+              href={`/${activeLocale}/contact`}
               className="inline-flex items-center gap-2 px-5 py-3 rounded-lg border border-black/10 text-black text-sm font-semibold hover:border-violet-400 hover:text-violet-600 transition-colors duration-200"
             >
-              Get in touch
+              {dict.hero.get_in_touch}
             </Link>
           </div>
 
@@ -123,7 +126,7 @@ export default function Hero() {
           <div
             className={`flex items-center gap-4 transition-all duration-700 delay-[400ms] ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
           >
-            <span className="text-xs text-black/30 uppercase tracking-widest">Find me on</span>
+            <span className="text-xs text-black/30 uppercase tracking-widest">{dict.hero.find_me}</span>
             <div className="h-px w-8 bg-black/10" />
             <a
               href="https://github.com/FadelYang"
