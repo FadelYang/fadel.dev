@@ -7,7 +7,8 @@ import en from '@/dictionaries/en.json';
 import id from '@/dictionaries/id.json';
 
 // ── CV Modal ───────────────────────────────────────────────
-function CVModal({ onClose, onBack, dict }: { onClose: () => void; onBack: () => void; dict: typeof en }) {
+function CVModal({ onClose, onBack, dict, locale }: { onClose: () => void; onBack: () => void; dict: typeof en; locale: string }) {
+  const cvUrl = locale === 'id' ? '/cv_indo.pdf' : '/cv.pdf';
   return createPortal(
     <div className="fixed inset-0 z-999 flex items-center justify-center px-4">
       <div className="absolute inset-0 bg-black/40 backdrop-blur-md" onClick={onClose} />
@@ -33,7 +34,7 @@ function CVModal({ onClose, onBack, dict }: { onClose: () => void; onBack: () =>
 
           <div className="flex items-center gap-2">
             <a
-              href="/cv.pdf"
+              href={cvUrl}
               download
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-violet-600 hover:bg-violet-500 text-white text-xs font-semibold transition-colors duration-200"
             >
@@ -52,7 +53,7 @@ function CVModal({ onClose, onBack, dict }: { onClose: () => void; onBack: () =>
         {/* PDF Viewer */}
         <div className="overflow-auto" style={{ height: "75vh" }}>
           <iframe
-            src="/cv.pdf"
+            src={cvUrl}
             className="w-full h-full"
             style={{ minHeight: "75vh" }}
             title="Fadela Numah Kadenza CV"
@@ -191,6 +192,7 @@ export default function HireMeModal({ locale }: { locale?: string }) {
           onClose={() => setView("closed")}
           onBack={() => setView("hire")}
           dict={dict}
+          locale={activeLocale}
         />
       )}
 
