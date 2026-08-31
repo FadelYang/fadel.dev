@@ -39,7 +39,7 @@ export default function Projects({ projects }: ProjectsProps) {
   if (published.length === 0) return null;
 
   return (
-    <section ref={ref} className="relative bg-white pt-12 pb-24 overflow-hidden">
+    <section ref={ref} className="relative bg-white pt-12 pb-12 overflow-hidden">
       {/* Background blobs — same as hero */}
       <div className="absolute -top-32 -right-32 w-130 h-130 bg-violet-100 rounded-full blur-3xl opacity-50 pointer-events-none" />
       <div className="absolute bottom-0 -left-20 w-80 h-80 bg-violet-50 rounded-full blur-2xl opacity-40 pointer-events-none" />

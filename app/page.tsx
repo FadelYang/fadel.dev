@@ -1,6 +1,7 @@
 import Hero from "./(homepage)/hero";
 import Experience from "./(homepage)/experience";
 import Projects from "./(homepage)/projects";
+import Contact from "./(homepage)/contact";
 import { getAllPosts } from "@/lib/blog";
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
       <Hero />
       <Experience />
       <Projects projects={projects} />
+      <Contact />
     </div>
   );
 }
